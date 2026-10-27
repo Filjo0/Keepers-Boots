@@ -14,7 +14,7 @@ All 75 tests passed locally after the certificate-package security update; the f
 
 All three recorded HTTP choice/evidence/reveal loops passed. The owner checked three phone scenarios before the latest audience presentation change. That change still needs real-browser visual verification. Unit tests and HTTP probes are not screen-reader or fan-learning evidence.
 
-The public source ZIP was verified by anonymous download against every committed file. The source contains no weights, environments or private corpus. Private operational diaries and original author metadata remain outside public history. Earlier public commits may retain nonsecret setup references.
+The public source ZIP was verified by anonymous download against every committed file. The source contains no weights, environments or private corpus. Current public task cards omit detailed local operations, and the original development Git history/author metadata was not uploaded. Earlier public commits retain nonsecret setup notes.
 
 ## Security scope
 

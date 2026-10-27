@@ -199,15 +199,15 @@ class HTTPTests(unittest.TestCase):
 
 class LANPolicyTests(unittest.TestCase):
     def test_only_explicit_rfc1918_ipv4_addresses_are_accepted(self):
-        for address in ("10.2.3.4", "172.16.0.2", "172.31.255.254", "192.168.1.248"):
+        for address in ("10.2.3.4", "172.16.0.2", "172.31.255.254", "192.168.50.10"):
             self.assertEqual(private_lan_ipv4(address), address)
         for address in ("0.0.0.0", "127.0.0.1", "8.8.8.8", "169.254.1.2", "172.32.0.1", "192.0.2.1", "localhost", "::1"):
             with self.subTest(address=address), self.assertRaises(ValueError):
                 private_lan_ipv4(address)
         with self.assertRaisesRegex(ValueError, "bind address"):
-            KeeperServer(("127.0.0.1", 0), lan_ip="192.168.1.248")
+            KeeperServer(("127.0.0.1", 0), lan_ip="192.168.50.10")
 
-    def policy(self, pairs, lan_ip="192.168.1.248"):
+    def policy(self, pairs, lan_ip="192.168.50.10"):
         handler = KeeperHandler.__new__(KeeperHandler)
         handler.server = SimpleNamespace(server_port=8000, lan_ip=lan_ip)
         handler.headers = Message()
@@ -216,11 +216,11 @@ class LANPolicyTests(unittest.TestCase):
         return handler._local_request()
 
     def test_lan_host_and_origin_must_match_exactly(self):
-        host = "192.168.1.248:8000"
+        host = "192.168.50.10:8000"
         self.policy([("Host", host)])
         self.policy([("Host", host), ("Origin", "http://" + host)])
         cases = [[], [("Host", "127.0.0.1:8000")], [("Host", "192.168.1.249:8000")],
-                 [("Host", "192.168.1.248:8001")], [("Host", "evil.example:8000")],
+                 [("Host", "192.168.50.10:8001")], [("Host", "evil.example:8000")],
                  [("Host", host), ("Host", host)],
                  [("Host", host), ("Origin", "https://" + host)],
                  [("Host", host), ("Origin", "null")],
@@ -236,11 +236,11 @@ class LANPolicyTests(unittest.TestCase):
         self.policy([("Host", "localhost:8000")], lan_ip=None)
         self.policy([("Host", "127.0.0.1:8000")], lan_ip=None)
         with self.assertRaises(APIError):
-            self.policy([("Host", "192.168.1.248:8000")], lan_ip=None)
+            self.policy([("Host", "192.168.50.10:8000")], lan_ip=None)
 
     def test_lan_cli_refuses_live_or_default_modes_before_starting_any_server(self):
         for mode in ("off", "local"):
-            with self.subTest(mode=mode), patch.object(sys, "argv", ["api", "--agents", mode, "--lan-ip", "192.168.1.248"]):
+            with self.subTest(mode=mode), patch.object(sys, "argv", ["api", "--agents", mode, "--lan-ip", "192.168.50.10"]):
                 with patch("keepers_boots.api.KeeperServer") as server, redirect_stderr(io.StringIO()) as output:
                     with self.assertRaises(SystemExit) as caught:
                         main()

@@ -24,4 +24,4 @@ Complete the A$0 Inside the Game entry before 28 October 2026 at 14:59 Perth (27
 
 Local and hosted tests do not establish learning effectiveness, independent football realism or reviewer benefit. Pilot sessions and a held-out comparison are optional evidence work; their results must remain unmeasured until collected. Docker and fresh live inference are not verified release routes. Source privacy checks and known-advisory lookups do not guarantee absence of private information or vulnerabilities.
 
-The original development history and local operational diary remain private. The public snapshot retains synthetic data, original drafts, selected unedited agent captures, known failures, dependency notices and source tests. No video or submitted entry is available yet.
+The original development Git history remains local. Current public task cards are concise summaries; earlier public commits retain nonsecret setup notes. The public snapshot retains synthetic data, original drafts, selected unedited agent captures, known failures, dependency notices and source tests. No video or submitted entry is available yet.
