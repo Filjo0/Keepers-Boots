@@ -1,0 +1,67 @@
+{
+  "schema_version": "1",
+  "scenario_id": "tempting-short-pass",
+  "interpretation": {
+    "analyst": "The comparison evidence shows switch-left has larger signed sampled interception margins than short-right, but the pressure evidence indicates both options share the same release-before-pressure margin range, meaning preparation delay does not alter the margin's width.",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "evidence_ids": [
+          "comparison:short-right:switch-left"
+        ],
+        "principle_ids": [
+          "K04"
+        ],
+        "text": "The switch-left option has larger signed sampled interception margins than short-right, suggesting a potentially wider time buffer against opponents."
+      },
+      {
+        "claim_id": "c2",
+        "evidence_ids": [
+          "pressure:arrival",
+          "short-right:geometry",
+          "switch-left:geometry"
+        ],
+        "principle_ids": [
+          "K03",
+          "K12"
+        ],
+        "text": "Both ground options show the same release-before-pressure margin range, indicating that preparation delay does not change the margin's width."
+      }
+    ],
+    "elapsed_s": 86.031,
+    "fan": "While the switch-left option shows larger margins against opponents, both ground passes require the same amount of time to release the ball before pressure arrives.",
+    "missing_information": [],
+    "model": "gemma4:e4b-llama.cpp",
+    "source": "local_agents",
+    "status": "reviewed",
+    "trace": [
+      {
+        "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+        "stage": "mcp",
+        "status": "read"
+      },
+      {
+        "detail": "References, identities, numeric rendering and scope guards passed.",
+        "stage": "validator",
+        "status": "accept"
+      },
+      {
+        "detail": "No unsupported interpretation identified.",
+        "stage": "reviewer",
+        "status": "accept"
+      }
+    ]
+  },
+  "recording": {
+    "snapshot_id": "02ec212e357140850a6bcc2964e6c9e996c5d6edf338365d85f60b5424b5a019",
+    "assessment_sha256": "b3f838b600f48fc3aa85c77f80f1add641700506bb9d4a0a5d1d60ed3331cb35",
+    "pressure_sha256": "be413440d439a5cf2eca9b9492323c2c70846ee25340ffeed85c19f1dd291bd5",
+    "source_sha256": "bb9f02ebb059e2aafe5a49aac0ca66684435da33d08d762f12c3519378f8f642",
+    "saved_at_utc": "2026-10-12T08:57:13Z",
+    "timestamp_basis": "source_file_modified_time",
+    "capture_method": "tools/agent_smoke.py HTTP evidence capture",
+    "notes": [
+      "Known wording flaw in the analyst text and a claim: scenario 1 tests no variation in preparation delay, so it does not establish that delay leaves the margin's width unchanged. This recording uses the prompt from before commit 7ee37ef; the later prompt fix did not regenerate it. Reviewer approval does not establish that inference."
+    ]
+  }
+}

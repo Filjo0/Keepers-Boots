@@ -1,0 +1,49 @@
+1
+00:00:00,000 --> 00:00:10,000
+Before the save: understand the keeper's choices.
+Keeper's Boots turns synthetic football events into evidence fans can inspect.
+
+2
+00:00:10,000 --> 00:00:18,000
+This fictional match uses generated events.
+Watch the replay freeze before the goalkeeper distributes the ball.
+
+3
+00:00:18,000 --> 00:00:30,000
+Pick a pass before seeing the recorded outcome.
+Your choice stays visible while you explore the same frozen evidence.
+
+4
+00:00:30,000 --> 00:00:45,000
+In this model, a defender can reach the short route before the ball.
+Along the wide route, the ball leads at the sampled points within the tested assumptions.
+
+5
+00:00:45,000 --> 00:00:55,000
+That answers one timing question.
+Aerial contests and an overall best-action ranking remain open.
+
+6
+00:00:55,000 --> 00:01:10,000
+The short pass completes in this authored continuation.
+The frozen evidence stays unchanged: the later outcome is separate from what was observable before the decision.
+
+7
+00:01:10,000 --> 00:01:25,000
+Now an opponent observation is old.
+The system declines the route comparison and explains what information is missing.
+
+8
+00:01:25,000 --> 00:01:38,000
+Fan view explains the lanes; Analyst view exposes timings and the captured handoff.
+Microsoft Agent Framework coordinates the analyst and reviewer. Code computes and checks facts.
+
+9
+00:01:38,000 --> 00:01:50,000
+These are labelled recordings of actual Gemma agent runs.
+The first explanation was selected from five documented attempts. Live inference is experimental.
+
+10
+00:01:50,000 --> 00:01:55,000
+Run without model hardware.
+Find source and testing instructions alongside this video.

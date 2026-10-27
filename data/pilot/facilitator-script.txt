@@ -1,0 +1,44 @@
+Keeper's Boots: adult pilot facilitator script
+
+Preparation
+- Use one browser tab in recorded mode. No model server is needed.
+- Copy adult-results-template.csv into ignored local-artifacts/pilot/ for notes.
+  Leave the tracked template empty. Assign P01, P02, etc.; no names/contact details.
+- Start a fresh scenario 1 attempt for each participant. Keep the initial Fan view.
+- Check resources before starting; pause the session if the supervisor stops the API.
+- Record that this is recorded mode. These sessions do not measure live AI latency.
+
+Read before starting
+"This is an unfinished football replay prototype using fictional teams and synthetic
+data. Would you like to try it? This session is for adults. You can stop or skip any
+question. May I keep anonymous notes about how it works for you and your answers?
+There is no audio or video recording."
+
+Proceed only after adult participation and anonymous-note consent are confirmed.
+If either is declined, do not collect a result row. Use paraphrases; ask separately
+before any later publication of a quote. Do not record names, faces or contacts.
+
+Unaided attempt
+"Please explore this moment as you would on your own. Let me know when you are done."
+Start the interaction timer. Do not explain the routes, the intended lesson, or which
+action to choose. Note navigation and any requested help; stop timing at completion
+or skip. Record help honestly. Do not open the optional comprehension form yet.
+
+Ask in this order and record answers before feedback
+1. What did you notice about the two ground routes? Explain in your own words.
+2. The recorded short pass completed. What, if anything, does that change about the earlier evidence?
+3. What does the model leave unknown? Would you describe the wide pass as guaranteed to succeed?
+4. If you chose a different action, did the recording show what your choice would have caused?
+5. Would you use this during a halftime/on-demand replay? What would make you skip or return?
+6. Would you want a friend to try this same moment? Why?
+
+After the six answers, the optional form may explain the evidence distinctions.
+Keep any answers after feedback separate. Optional scenarios 2/3 and celebration
+interest are exploratory follow-ups; keep notes in a separate ignored file.
+
+After the participant leaves
+Code the four comprehension observations as demonstrated, unclear or contradicted,
+using the supporting answer. Do not grade the football choice. Report actual counts
+with denominators, confusion and dissent. Five convenience-sample sessions cannot
+establish a learning effect, scenario realism, reviewer value or broad fan demand.
+No participant results have been collected by preparing these materials.

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keeper's Boots — Before the save</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#controls">Skip to replay controls</a>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Keeper's Boots home"><span class="brand-mark" aria-hidden="true">KB</span> KEEPER'S BOOTS</a>
+    <span class="synthetic-tag">FICTIONAL MATCH · SYNTHETIC DATA</span>
+  </header>
+  <main>
+    <div class="intro">
+      <div><p class="eyebrow">BEFORE THE SAVE</p><h1>Read the moment.</h1><p class="intro-copy">Step into the keeper's boots. Choose before the outcome, then look at the evidence.</p></div>
+      <div class="view-toggle" role="group" aria-label="Explanation depth">
+        <button id="fan-view" aria-pressed="true">Fan view</button><button id="analyst-view" aria-pressed="false">Analyst view</button>
+      </div>
+    </div>
+    <p id="audience-note" class="audience-note">Fan view · a quick read of the passing lanes. Choose an action to see what the model notices.</p>
+    <p id="error" class="error" role="alert" hidden></p>
+    <label class="scenario-picker" for="scenario">Choose a moment <select id="scenario"><option value="tempting-short-pass">01 · The tempting short pass</option><option value="press-arrives">02 · The press arrives</option><option value="uncertain-outlet">03 · The uncertain outlet</option></select></label>
+    <div class="workspace">
+      <section id="replay-view" class="replay-card" aria-label="Synthetic match replay" tabindex="-1">
+        <div class="score-strip"><span id="home-name">Harbour Lanterns</span><strong id="score">1 — 1</strong><span id="away-name">Vale Comets</span><span id="clock" class="clock">72:00</span></div>
+        <div class="pitch-wrap">
+          <div class="pitch-label"><span id="phase">Loading replay…</span><span id="elapsed">0.0 s</span></div>
+          <svg id="pitch" viewBox="0 0 113 76" role="img" aria-labelledby="pitch-title pitch-description">
+            <title id="pitch-title">Fictional match, attacking to the right</title>
+            <desc id="pitch-description">Lanterns are labelled circles; Comets are labelled squares. Text descriptions of the pass options appear beside the pitch.</desc>
+            <defs><pattern id="grass" width="15" height="68" patternUnits="userSpaceOnUse"><rect width="7.5" height="68" class="grass-stripe"/></pattern></defs>
+            <rect x="4" y="4" width="105" height="68" class="field"/>
+            <rect x="4" y="4" width="105" height="68" fill="url(#grass)"/>
+            <g class="pitch-lines">
+              <rect x="4" y="4" width="105" height="68"/><path d="M56.5 4v68"/><circle cx="56.5" cy="38" r="9.15"/>
+              <rect x="4" y="17.84" width="16.5" height="40.32"/><rect x="92.5" y="17.84" width="16.5" height="40.32"/>
+              <rect x="4" y="28.84" width="5.5" height="18.32"/><rect x="103.5" y="28.84" width="5.5" height="18.32"/>
+              <path d="M4 34.34H2v7.32h2 M109 34.34h2v7.32h-2"/>
+            </g>
+            <g id="routes"></g><g id="players"></g><circle id="ball" r="0.6" cx="12" cy="38"/>
+          </svg>
+          <p id="pitch-zoom" class="quiet" hidden>Zoomed into the keeper's area · numbered routes match the buttons.</p>
+          <p id="revealed-positions" class="quiet" role="status" hidden></p>
+          <p class="pitch-legend"><span><i class="home-dot"></i> Lanterns · circles</span><span><i class="away-dot"></i> Comets · squares</span><span>Attacking →</span></p>
+        </div>
+        <div id="controls" class="replay-controls" tabindex="-1">
+          <button id="play" class="primary" disabled>Play sequence</button>
+          <button id="skip" disabled>Skip to decision</button>
+          <button id="revisit" hidden>Revisit frozen decision</button>
+          <button id="restart" disabled>New attempt</button>
+          <progress id="progress" max="2000" value="0" aria-label="Replay progress"></progress>
+        </div>
+      </section>
+      <aside class="decision-card" aria-labelledby="scenario-title">
+        <p id="scenario-number" class="eyebrow">SCENARIO 01 / KEEPER DISTRIBUTION</p>
+        <h2 id="scenario-title" tabindex="-1">The tempting short pass</h2>
+        <p id="instruction">Watch the approaching press. The sequence freezes before the keeper acts.</p>
+        <p id="status" class="status" role="status" aria-live="polite">Preparing the sequence.</p>
+        <div class="options" role="group" aria-label="Choose the keeper's action">
+          <button class="option" data-option="short-right" disabled><span class="option-key">1</span><span><strong>Short right</strong><small>Ground pass to H02</small></span><span aria-hidden="true">↘</span></button>
+          <button class="option" data-option="switch-left" disabled><span class="option-key">2</span><span><strong>Switch left</strong><small>Ground pass to H03</small></span><span aria-hidden="true">↗</span></button>
+          <button class="option" data-option="clear-long" disabled><span class="option-key">3</span><span><strong>Clear long</strong><small>Aerial clearance toward H04</small></span><span aria-hidden="true">→</span></button>
+        </div>
+        <p class="quiet">Use buttons or keys 1, 2, 3. Your first choice stays frozen for this attempt.</p>
+      </aside>
+    </div>
+    <section id="evidence" class="evidence-section" aria-labelledby="evidence-title" hidden>
+      <div class="section-heading"><div><p class="eyebrow">BEFORE THE OUTCOME</p><h2 id="evidence-title" tabindex="-1">Frozen evidence</h2></div><span id="explanation-source" class="source-tag" role="status">Timing explanation · no AI review</span></div>
+      <p id="recording-disclosure" class="quiet" hidden></p><ul id="recording-notes" class="quiet" hidden></ul>
+      <p id="summary"></p>
+      <div id="evidence-cards" class="evidence-cards"></div>
+      <section id="pressure-section" aria-labelledby="pressure-title" hidden><h3 id="pressure-title">Release before the press?</h3><p id="pressure-evidence" class="quiet"></p><div id="pressure-timeline"></div></section>
+      <p id="comparison-facts" class="quiet"></p>
+      <button id="reveal" class="primary reveal" hidden>Reveal recorded continuation</button>
+      <details id="workflow-trace" hidden><summary>Inspect the analyst/reviewer handoff</summary><ol id="trace-steps"></ol><div id="reviewed-claims" hidden><h3>Accepted interpretations</h3><ul id="claim-list"></ul></div><p class="quiet">Agent review is not coaching validation. Rejections and fallbacks retain the frozen evidence.</p></details>
+      <div id="analyst-details" hidden>
+        <h3>Audit the timing model</h3>
+        <p>Margin = defender arrival − ball arrival at a sampled point. Negative permits a modelled interception opportunity; positive is not a guarantee.</p>
+        <p id="audit-abstention" hidden>No route timing comparison was made because an opponent observation is old. Inspect its age and movement bound above.</p>
+        <div id="route-audit" class="table-scroll"><table><caption>Frozen route evidence · seconds and metres, rounded to three decimal places</caption><thead><tr><th>Route</th><th>Length (m)</th><th>Receipt after decision (s)</th><th>Minimum margin range (s)</th></tr></thead><tbody id="timings"></tbody></table></div>
+        <p id="assumptions" class="quiet"></p>
+        <details><summary>Available observations and evidence identity</summary><p id="snapshot-id" class="hash"></p><p id="evidence-ids" class="hash"></p><div class="table-scroll"><table><thead><tr><th>Player</th><th>Observed position (m)</th><th>Observation time (ms)</th></tr></thead><tbody id="observations"></tbody></table></div></details>
+      </div>
+      <details class="limits"><summary>Scope and uncertainty</summary><ul id="limitations"></ul></details>
+    </section>
+    <section id="recap" class="recap-section" aria-labelledby="recap-title" hidden>
+      <p class="eyebrow">AFTER THE OUTCOME</p><h2 id="recap-title" tabindex="-1">One outcome. The same evidence.</h2>
+      <p id="recorded-outcome" class="outcome"></p><p id="choice-context"></p><p id="assessment-context"></p>
+      <p class="quiet">This is an authored synthetic sequence, not a prediction of what your alternative choice would cause.</p>
+      <details id="understanding"><summary>Check the idea — optional</summary>
+        <p>This checks how the explanation reads, not your football ability. Answers stay on this page and are not saved.</p>
+        <form id="understanding-form">
+          <fieldset><legend>Does a completed pass prove the original choice was best?</legend><label><input type="radio" name="outcome" value="proof" required> Yes, success proves it was best.</label><label><input type="radio" name="outcome" value="separate"> No, the outcome and the pre-decision evidence answer different questions.</label><label><input type="radio" name="outcome" value="unsure"> I'm not sure.</label></fieldset>
+          <fieldset><legend>What does a positive timing margin establish?</legend><label><input type="radio" name="margin" value="guarantee" required> The pass is guaranteed to succeed.</label><label><input type="radio" name="margin" value="model"> The ball arrives first at sampled points under the tested assumptions.</label><label><input type="radio" name="margin" value="unsure"> I'm not sure.</label></fieldset>
+          <button type="submit">Show explanation</button><p id="understanding-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </details>
+    </section>
+    <footer>Original fictional clubs and graphics. Modelled opportunities, not completion probabilities or player ratings. Local three-scenario experience.</footer>
+  </main>
+</body>
+</html>

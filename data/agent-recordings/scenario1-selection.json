@@ -1,0 +1,147 @@
+{
+  "schema_version": "1",
+  "scenario_id": "tempting-short-pass",
+  "classification": "showcase_selection_audit",
+  "documented_attempt_count": 5,
+  "selected_attempt": 3,
+  "scope": "This five-attempt showcase-selection sequence; earlier exploratory calls are not fully inventoried.",
+  "evaluation_limit": "Prompts and guards changed during calibration; not held-out, paired, or a latency benchmark.",
+  "clarity_trial_disposition": "Attempts 4 and 5 used the same experimental two-sentence prompt and failed at the client stage; the default prompt was restored.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "selected": false,
+      "source_sha256": "e21649a234cae0597b37ca433ff23c635660284e8a312cd9d0fa34a193680d1a",
+      "status": "reviewed",
+      "source": "local_agents",
+      "elapsed_s": 41.875,
+      "reason": null,
+      "trace": [
+        {
+          "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+          "stage": "mcp",
+          "status": "read"
+        },
+        {
+          "detail": "pressure_evidence_required:c2:pressure:arrival",
+          "stage": "validator",
+          "status": "reject"
+        },
+        {
+          "detail": "One analyst repair permitted; evidence stays frozen.",
+          "stage": "repair",
+          "status": "requested"
+        },
+        {
+          "detail": "References, identities, numeric rendering and scope guards passed.",
+          "stage": "validator",
+          "status": "accept"
+        },
+        {
+          "detail": "No unsupported interpretation identified.",
+          "stage": "reviewer",
+          "status": "accept"
+        }
+      ],
+      "audit_note": "Reviewer accepted the wrong pressure-arrival subject."
+    },
+    {
+      "attempt": 2,
+      "selected": false,
+      "source_sha256": "56396c7404e64ec2e35e2fc7a204fd25c1e9de0f9e84f6ded8e03fe2469c3a90",
+      "status": "reviewed",
+      "source": "local_agents",
+      "elapsed_s": 54.25,
+      "reason": null,
+      "trace": [
+        {
+          "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+          "stage": "mcp",
+          "status": "read"
+        },
+        {
+          "detail": "References, identities, numeric rendering and scope guards passed.",
+          "stage": "validator",
+          "status": "accept"
+        },
+        {
+          "detail": "No unsupported interpretation identified.",
+          "stage": "reviewer",
+          "status": "accept"
+        }
+      ],
+      "audit_note": "Reviewer accepted false joint positive margins and an incomplete analyst sentence."
+    },
+    {
+      "attempt": 3,
+      "selected": true,
+      "source_sha256": "bb9f02ebb059e2aafe5a49aac0ca66684435da33d08d762f12c3519378f8f642",
+      "status": "reviewed",
+      "source": "local_agents",
+      "elapsed_s": 86.031,
+      "reason": null,
+      "trace": [
+        {
+          "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+          "stage": "mcp",
+          "status": "read"
+        },
+        {
+          "detail": "References, identities, numeric rendering and scope guards passed.",
+          "stage": "validator",
+          "status": "accept"
+        },
+        {
+          "detail": "No unsupported interpretation identified.",
+          "stage": "reviewer",
+          "status": "accept"
+        }
+      ],
+      "audit_note": "Selected unchanged: checked facts, but dense fan wording remains untested."
+    },
+    {
+      "attempt": 4,
+      "selected": false,
+      "source_sha256": "e2f059c5ea8db1cc9ee618c941cb22e0f706c4c1957dd9f3730a91700cb24485",
+      "status": "fallback",
+      "source": "deterministic",
+      "elapsed_s": 98.516,
+      "reason": "ChatClientException",
+      "trace": [
+        {
+          "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+          "stage": "mcp",
+          "status": "read"
+        },
+        {
+          "detail": "Agent or MCP request unavailable; deterministic evidence retained.",
+          "stage": "fallback",
+          "status": "used"
+        }
+      ],
+      "audit_note": "Model-client failure; no approved explanation available."
+    },
+    {
+      "attempt": 5,
+      "selected": false,
+      "source_sha256": "6fefa9cd665f782c2eb232a3732b6f17c850a15e0d295d5f46d445287d56f7f8",
+      "status": "fallback",
+      "source": "deterministic",
+      "elapsed_s": 99.204,
+      "reason": "ChatClientException",
+      "trace": [
+        {
+          "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+          "stage": "mcp",
+          "status": "read"
+        },
+        {
+          "detail": "Agent or MCP request unavailable; deterministic evidence retained.",
+          "stage": "fallback",
+          "status": "used"
+        }
+      ],
+      "audit_note": "Model-client failure; no approved explanation available."
+    }
+  ]
+}

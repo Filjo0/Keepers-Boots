@@ -1,0 +1,13 @@
+.git
+.venv
+.env
+.env.*
+local-artifacts
+__pycache__
+*.pyc
+.idea
+.vscode
+tests
+data/*
+!data/agent-recordings/
+!data/agent-recordings/**

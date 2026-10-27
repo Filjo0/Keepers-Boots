@@ -1,0 +1,19 @@
+Keeper's Boots - Before the save: understand the keeper's choices.
+
+The keeper has the ball. The press is closing. Where would you pass?
+
+Keeper's Boots lets fans read a football moment before seeing its outcome. Replay a fictional match, freeze at the keeper's decision, choose a pass, inspect the available evidence, then reveal the continuation. Three scenarios explore an interceptable short route, the time cost of another touch and an opponent observation too old to support a comparison.
+
+Fan view gives plain-language findings. Analyst view opens exact timings, assumptions, observation ages and the captured agent handoff. The same frozen assessment and the viewer's choice survive every view change and reveal. A completed pass never rewrites what was knowable before it.
+
+Microsoft Agent Framework coordinates an analyst and a reviewer over evidence from five read-only MCP tools. Code computes facts and checks specified claims; the workflow permits one repair before fallback. The demo replays labelled recordings of actual agent runs, with numeric evidence rechecked by current code. It needs no GPU, model hardware or paid service.
+
+Pipeline: ingest generated scenario events; interpret frozen observations in code; explain through analyst/reviewer roles; render an SVG replay, evidence and recap; personalise the fan and analyst presentations. Ingest is generated replay, not a live event feed.
+
+Microsoft technology used: Microsoft Agent Framework. The captured runs used a local Gemma model. No Azure service is used. GitHub Actions checks are configured; hosted execution has not run yet.
+
+Free testing: use Python 3.12 and the README's recorded-mode instructions. The same repository includes the separate live-agent code and setup instructions; live inference remains experimental.
+
+Fan appeal, independent scenario realism and reviewer benefit remain unmeasured. The README and recording inventory disclose capture selection, acceptance-only traces and known wording limitations. Plain-language route cards present code-computed findings without editing captured AI text.
+
+RELEASE DRAFT: add verified public repository and video URLs after publishing, update actual CI status, and remove this status line before submission.

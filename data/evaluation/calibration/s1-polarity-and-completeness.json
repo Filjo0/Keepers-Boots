@@ -1,0 +1,466 @@
+{
+  "schema_version": "1",
+  "case_id": "s1-polarity-and-completeness",
+  "classification": "calibration_failure",
+  "snapshot_id": "02ec212e357140850a6bcc2964e6c9e996c5d6edf338365d85f60b5424b5a019",
+  "decision": {
+    "schema_version": "0.1",
+    "scenario_id": "tempting-short-pass",
+    "t_ms": 2000,
+    "pitch": {
+      "length_m": 105,
+      "width_m": 68
+    },
+    "attack_direction": 1,
+    "attacking_team": "H",
+    "keeper_id": "H01",
+    "match_context": {
+      "home_goals": 1,
+      "away_goals": 1,
+      "match_clock_s": 4320
+    },
+    "ball": {
+      "position_m": [
+        8,
+        34
+      ],
+      "controller_id": "H01",
+      "observed_at_ms": 2000
+    },
+    "observations": [
+      {
+        "player_id": "H01",
+        "team": "H",
+        "position_m": [
+          8,
+          34
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H02",
+        "team": "H",
+        "position_m": [
+          19,
+          46
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H03",
+        "team": "H",
+        "position_m": [
+          24,
+          12
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H04",
+        "team": "H",
+        "position_m": [
+          43,
+          40
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H05",
+        "team": "H",
+        "position_m": [
+          62,
+          5
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H06",
+        "team": "H",
+        "position_m": [
+          66,
+          17
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H07",
+        "team": "H",
+        "position_m": [
+          70,
+          29
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H08",
+        "team": "H",
+        "position_m": [
+          73,
+          43
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H09",
+        "team": "H",
+        "position_m": [
+          76,
+          57
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H10",
+        "team": "H",
+        "position_m": [
+          80,
+          8
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "H11",
+        "team": "H",
+        "position_m": [
+          84,
+          62
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V01",
+        "team": "V",
+        "position_m": [
+          16,
+          37
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V02",
+        "team": "V",
+        "position_m": [
+          21,
+          45
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V03",
+        "team": "V",
+        "position_m": [
+          37,
+          22
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V04",
+        "team": "V",
+        "position_m": [
+          44,
+          39
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V05",
+        "team": "V",
+        "position_m": [
+          60,
+          8
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V06",
+        "team": "V",
+        "position_m": [
+          64,
+          21
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V07",
+        "team": "V",
+        "position_m": [
+          67,
+          35
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V08",
+        "team": "V",
+        "position_m": [
+          70,
+          50
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V09",
+        "team": "V",
+        "position_m": [
+          79,
+          60
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V10",
+        "team": "V",
+        "position_m": [
+          87,
+          25
+        ],
+        "observed_at_ms": 2000
+      },
+      {
+        "player_id": "V11",
+        "team": "V",
+        "position_m": [
+          100,
+          34
+        ],
+        "observed_at_ms": 2000
+      }
+    ],
+    "options": [
+      {
+        "option_id": "short-right",
+        "kind": "ground",
+        "target_player_id": "H02",
+        "target_m": [
+          19,
+          46
+        ],
+        "ball_speed_mps": [
+          12,
+          16
+        ]
+      },
+      {
+        "option_id": "switch-left",
+        "kind": "ground",
+        "target_player_id": "H03",
+        "target_m": [
+          24,
+          12
+        ],
+        "ball_speed_mps": [
+          16,
+          20
+        ]
+      },
+      {
+        "option_id": "clear-long",
+        "kind": "aerial",
+        "target_player_id": "H04",
+        "target_m": [
+          43,
+          40
+        ]
+      }
+    ],
+    "model": {
+      "model_version": "point-arrival-v0.1",
+      "release_delay_s": 0.3,
+      "defender_speed_mps": [
+        4.5,
+        6.5
+      ],
+      "reaction_delay_s": [
+        0.15,
+        0.35
+      ],
+      "lane_samples": 1001
+    }
+  },
+  "assessment": {
+    "snapshot_id": "02ec212e357140850a6bcc2964e6c9e996c5d6edf338365d85f60b5424b5a019",
+    "scenario_id": "tempting-short-pass",
+    "decision_t_ms": 2000,
+    "model_version": "point-arrival-v0.1",
+    "status": "model_evidence",
+    "ranking": null,
+    "limitations": [
+      "Synthetic constant-speed point-player model; no real-player calibration.",
+      "Spatial sampling is approximate; no reach radius, acceleration or execution error.",
+      "Aerial contests are not modelled; no universal option ranking.",
+      "Timing margins are not pass-completion probabilities."
+    ],
+    "options": [
+      {
+        "option_id": "short-right",
+        "evidence_id": "short-right:geometry",
+        "kind": "ground",
+        "route_length_m": 16.278821,
+        "status": "model_evidence",
+        "receipt_after_decision_s": [
+          1.317426,
+          1.656568
+        ],
+        "minimum_interception_margin_s": [
+          -1.162558,
+          -0.470522
+        ],
+        "finding": "interception_reachable_in_all_tested_parameter_combinations",
+        "parameter_combinations": 8,
+        "lane_samples": 1001
+      },
+      {
+        "option_id": "switch-left",
+        "evidence_id": "switch-left:geometry",
+        "kind": "ground",
+        "route_length_m": 27.202941,
+        "status": "model_evidence",
+        "receipt_after_decision_s": [
+          1.660147,
+          2.000184
+        ],
+        "minimum_interception_margin_s": [
+          0.673081,
+          1.71899
+        ],
+        "finding": "positive_margin_at_sampled_points_in_all_tested_parameter_combinations",
+        "parameter_combinations": 8,
+        "lane_samples": 1001
+      },
+      {
+        "option_id": "clear-long",
+        "evidence_id": "clear-long:geometry",
+        "kind": "aerial",
+        "route_length_m": 35.510562,
+        "status": "not_modelled",
+        "reason": "aerial_flight_and_contest_not_modelled"
+      }
+    ],
+    "comparisons": [
+      {
+        "evidence_id": "comparison:short-right:switch-left",
+        "option_ids": [
+          "short-right",
+          "switch-left"
+        ],
+        "metric": "sampled_interception_margin",
+        "relation": "ordered",
+        "larger_margin_option_id": "switch-left",
+        "smaller_margin_option_id": "short-right",
+        "basis": "parameter_range_extrema",
+        "text": "switch-left has larger signed sampled interception margins than short-right throughout the tested parameter ranges. This does not establish lower interception probability or an overall best action."
+      }
+    ]
+  },
+  "pressure": {
+    "snapshot_id": "02ec212e357140850a6bcc2964e6c9e996c5d6edf338365d85f60b5424b5a019",
+    "evidence_id": "pressure:arrival",
+    "model_version": "point-arrival-v0.1",
+    "status": "model_evidence",
+    "limitations": [
+      "Constant-speed point-player arrival at keeper position; no reach, acceleration or ball control.",
+      "Release before arrival does not establish pass success or subsequent possession.",
+      "An extra touch is represented only by a declared preparation delay."
+    ],
+    "options": [
+      {
+        "option_id": "short-right",
+        "release_after_decision_s": 0.3,
+        "release_before_pressure_margin_s": [
+          1.164462,
+          1.948667
+        ]
+      },
+      {
+        "option_id": "switch-left",
+        "release_after_decision_s": 0.3,
+        "release_before_pressure_margin_s": [
+          1.164462,
+          1.948667
+        ]
+      },
+      {
+        "option_id": "clear-long",
+        "release_after_decision_s": 0.3,
+        "release_before_pressure_margin_s": [
+          1.164462,
+          1.948667
+        ]
+      }
+    ],
+    "arrival_after_decision_s": [
+      1.464462,
+      2.248667
+    ]
+  },
+  "interpretation": {
+    "analyst": "The comparison evidence shows that switch-left has larger sampled interception margins than short-right, which addresses the principle of considering opponents along the route. The model scope limits this analysis to sampled ground-route timing, meaning the comparison does not establish lower interception probability or overall tactical optimality. Therefore, the trade-off is between the larger, *",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "evidence_ids": [
+          "comparison:short-right:switch-left"
+        ],
+        "principle_ids": [
+          "K04"
+        ],
+        "text": "The switch-left option has larger sampled interception margins than short-right, suggesting a greater time buffer against opponents."
+      },
+      {
+        "claim_id": "c2",
+        "evidence_ids": [
+          "short-right:geometry",
+          "switch-left:geometry"
+        ],
+        "principle_ids": [
+          "K12"
+        ],
+        "text": "Both ground options show positive margins, but the comparison only covers sampled timing, not overall tactical success."
+      }
+    ],
+    "elapsed_s": 54.25,
+    "fan": "The analysis suggests that the switch-left option provides a larger time buffer against opponents compared to the short-right option. However, remember that this comparison only covers sampled timing, not the actual success of the pass.",
+    "missing_information": [],
+    "model": "gemma4:e4b-llama.cpp",
+    "source": "local_agents",
+    "status": "reviewed",
+    "trace": [
+      {
+        "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+        "stage": "mcp",
+        "status": "read"
+      },
+      {
+        "detail": "References, identities, numeric rendering and scope guards passed.",
+        "stage": "validator",
+        "status": "accept"
+      },
+      {
+        "detail": "No unsupported interpretation identified.",
+        "stage": "reviewer",
+        "status": "accept"
+      }
+    ]
+  },
+  "audit": {
+    "issues": [
+      "The draft says both ground options have positive margins, although the short route's entire reported range is negative.",
+      "The analyst paragraph stops mid-sentence."
+    ],
+    "reviewer_approved": true,
+    "current_guard_errors": [
+      "ground_margin_polarity_mismatch:positive:short-right",
+      "incomplete_prose:analyst"
+    ],
+    "initial_analyst_draft_available": false,
+    "full_review_object_available": false,
+    "paired_analyst_only_result_available": false,
+    "exclusion": "Seen during prompt/guard tuning; never count as held-out evidence."
+  },
+  "provenance": {
+    "source_sha256": "56396c7404e64ec2e35e2fc7a204fd25c1e9de0f9e84f6ded8e03fe2469c3a90",
+    "source_saved_at_utc": "2026-10-12T08:50:20Z",
+    "guard_source_sha256_at_export": "0e6a2a877a1e5941a33433b7a142a947b765e9a114612f32860e39244d7f5e58"
+  }
+}

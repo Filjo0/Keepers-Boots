@@ -1,0 +1,7 @@
+# Verified against Microsoft/MCP docs and public PyPI on 2026-10-10.
+# Local inference uses the existing Ollama service; no cloud subscription required.
+agent-framework-core==1.21.0
+agent-framework-openai==1.16.0
+mcp==1.30.0
+pydantic==2.14.0
+jsonschema==4.26.0

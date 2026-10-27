@@ -1,0 +1,1286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Keeper's Boots three-scenario local API",
+  "description": "Validate an endpoint using its named definition. This root accepts response envelopes.",
+  "anyOf": [
+    {
+      "$ref": "#/$defs/startResponse"
+    },
+    {
+      "$ref": "#/$defs/decisionResponse"
+    },
+    {
+      "$ref": "#/$defs/evidenceResponse"
+    },
+    {
+      "$ref": "#/$defs/revealResponse"
+    },
+    {
+      "$ref": "#/$defs/errorResponse"
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,64}$"
+    },
+    "snapshotId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "time": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "position": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "numericRange": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "pitch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "length_m",
+        "width_m"
+      ],
+      "properties": {
+        "length_m": {
+          "type": "number",
+          "minimum": 1
+        },
+        "width_m": {
+          "type": "number",
+          "minimum": 1
+        }
+      }
+    },
+    "matchContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "home_goals",
+        "away_goals",
+        "match_clock_s"
+      ],
+      "properties": {
+        "home_goals": {
+          "$ref": "#/$defs/time"
+        },
+        "away_goals": {
+          "$ref": "#/$defs/time"
+        },
+        "match_clock_s": {
+          "$ref": "#/$defs/time"
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "t_ms",
+        "players",
+        "ball"
+      ],
+      "properties": {
+        "t_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "players": {
+          "type": "array",
+          "minItems": 22,
+          "maxItems": 22,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "player_id",
+              "position_m"
+            ],
+            "properties": {
+              "player_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "position_m": {
+                "$ref": "#/$defs/position"
+              }
+            }
+          }
+        },
+        "ball": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position_m"
+          ],
+          "properties": {
+            "position_m": {
+              "$ref": "#/$defs/position"
+            }
+          }
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "player_id",
+        "team",
+        "position_m",
+        "observed_at_ms"
+      ],
+      "properties": {
+        "player_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "team": {
+          "$ref": "#/$defs/identifier"
+        },
+        "position_m": {
+          "$ref": "#/$defs/position"
+        },
+        "observed_at_ms": {
+          "$ref": "#/$defs/time"
+        }
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "option_id",
+        "kind",
+        "target_player_id",
+        "target_m"
+      ],
+      "properties": {
+        "option_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "kind": {
+          "enum": [
+            "ground",
+            "aerial"
+          ]
+        },
+        "target_player_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "target_m": {
+          "$ref": "#/$defs/position"
+        },
+        "ball_speed_mps": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "preparation_delay_s": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "ground"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "ball_speed_mps"
+        ]
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_version",
+        "release_delay_s",
+        "defender_speed_mps",
+        "reaction_delay_s",
+        "lane_samples"
+      ],
+      "properties": {
+        "model_version": {
+          "enum": [
+            "point-arrival-v0.1",
+            "point-arrival-v0.2"
+          ]
+        },
+        "release_delay_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "defender_speed_mps": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "reaction_delay_s": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "lane_samples": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10001
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "scenario_id",
+        "t_ms",
+        "pitch",
+        "attack_direction",
+        "attacking_team",
+        "keeper_id",
+        "match_context",
+        "ball",
+        "observations",
+        "options",
+        "model"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "scenario_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "t_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "pitch": {
+          "$ref": "#/$defs/pitch"
+        },
+        "attack_direction": {
+          "enum": [
+            -1,
+            1
+          ]
+        },
+        "attacking_team": {
+          "$ref": "#/$defs/identifier"
+        },
+        "keeper_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "match_context": {
+          "$ref": "#/$defs/matchContext"
+        },
+        "ball": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position_m",
+            "controller_id",
+            "observed_at_ms"
+          ],
+          "properties": {
+            "position_m": {
+              "$ref": "#/$defs/position"
+            },
+            "controller_id": {
+              "$ref": "#/$defs/identifier"
+            },
+            "observed_at_ms": {
+              "$ref": "#/$defs/time"
+            }
+          }
+        },
+        "observations": {
+          "type": "array",
+          "minItems": 22,
+          "maxItems": 22,
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        },
+        "options": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "model": {
+          "$ref": "#/$defs/model"
+        }
+      }
+    },
+    "optionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "option_id",
+        "evidence_id",
+        "kind",
+        "route_length_m",
+        "status"
+      ],
+      "properties": {
+        "option_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "evidence_id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "ground",
+            "aerial"
+          ]
+        },
+        "route_length_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "status": {
+          "enum": [
+            "model_evidence",
+            "not_modelled"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "finding": {
+          "enum": [
+            "interception_reachable_in_all_tested_parameter_combinations",
+            "positive_margin_at_sampled_points_in_all_tested_parameter_combinations",
+            "finding_changes_with_assumptions"
+          ]
+        },
+        "receipt_after_decision_s": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "minimum_interception_margin_s": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "parameter_combinations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "lane_samples": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10001
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "const": "model_evidence"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "finding",
+          "receipt_after_decision_s",
+          "minimum_interception_margin_s",
+          "parameter_combinations",
+          "lane_samples"
+        ]
+      },
+      "else": {
+        "required": [
+          "reason"
+        ]
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_id",
+        "scenario_id",
+        "decision_t_ms",
+        "model_version",
+        "status",
+        "ranking",
+        "limitations",
+        "options",
+        "comparisons"
+      ],
+      "properties": {
+        "snapshot_id": {
+          "$ref": "#/$defs/snapshotId"
+        },
+        "scenario_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "decision_t_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "model_version": {
+          "enum": [
+            "point-arrival-v0.1",
+            "point-arrival-v0.2"
+          ]
+        },
+        "status": {
+          "enum": [
+            "model_evidence",
+            "insufficient_evidence"
+          ]
+        },
+        "ranking": {
+          "type": "null"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "options": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/optionEvidence"
+          }
+        },
+        "reason": {
+          "const": "stale_observations"
+        },
+        "stale_observation_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "uncertainty_regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/uncertaintyRegion"
+          },
+          "maxItems": 22
+        },
+        "comparisons": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/comparisonFact"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "const": "insufficient_evidence"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reason",
+          "stale_observation_ids",
+          "uncertainty_regions"
+        ],
+        "properties": {
+          "options": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    "explanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "summary",
+        "options"
+      ],
+      "properties": {
+        "source": {
+          "enum": [
+            "deterministic",
+            "local_agents",
+            "recorded_agents"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "option_id",
+              "evidence_id",
+              "text"
+            ],
+            "properties": {
+              "option_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "evidence_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "analyst_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "startRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenario_id": {
+          "enum": [
+            "tempting-short-pass",
+            "press-arrives",
+            "uncertain-outlet"
+          ]
+        }
+      }
+    },
+    "choiceRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "option_id"
+      ],
+      "properties": {
+        "option_id": {
+          "enum": [
+            "short-right",
+            "switch-left",
+            "clear-long",
+            "take-touch",
+            "release-short"
+          ]
+        }
+      }
+    },
+    "revealRequest": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "startResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "session_id",
+        "scenario_id",
+        "synthetic",
+        "title",
+        "teams",
+        "roster",
+        "pitch",
+        "match_context",
+        "decision_t_ms",
+        "frames",
+        "labels"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "session_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{32}$"
+        },
+        "scenario_id": {
+          "enum": [
+            "tempting-short-pass",
+            "press-arrives",
+            "uncertain-outlet"
+          ]
+        },
+        "synthetic": {
+          "const": true
+        },
+        "title": {
+          "type": "string"
+        },
+        "teams": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "H",
+            "V"
+          ],
+          "properties": {
+            "H": {
+              "type": "string"
+            },
+            "V": {
+              "type": "string"
+            }
+          }
+        },
+        "roster": {
+          "type": "array",
+          "minItems": 22,
+          "maxItems": 22,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "player_id",
+              "team",
+              "label"
+            ],
+            "properties": {
+              "player_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "team": {
+                "$ref": "#/$defs/identifier"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pitch": {
+          "$ref": "#/$defs/pitch"
+        },
+        "match_context": {
+          "$ref": "#/$defs/matchContext"
+        },
+        "decision_t_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frame"
+          }
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "minProperties": 3,
+          "maxProperties": 3
+        }
+      }
+    },
+    "decisionResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_id",
+        "decision"
+      ],
+      "properties": {
+        "snapshot_id": {
+          "$ref": "#/$defs/snapshotId"
+        },
+        "decision": {
+          "$ref": "#/$defs/snapshot"
+        }
+      }
+    },
+    "evidenceResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "choice",
+        "assessment",
+        "explanation",
+        "pressure",
+        "interpretation"
+      ],
+      "properties": {
+        "choice": {
+          "$ref": "#/$defs/identifier"
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        },
+        "explanation": {
+          "$ref": "#/$defs/explanation"
+        },
+        "pressure": {
+          "$ref": "#/$defs/pressure"
+        },
+        "interpretation": {
+          "$ref": "#/$defs/interpretation"
+        }
+      }
+    },
+    "revealResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "choice",
+        "assessment",
+        "explanation",
+        "continuation",
+        "frames",
+        "events",
+        "recap",
+        "pressure",
+        "interpretation"
+      ],
+      "properties": {
+        "choice": {
+          "$ref": "#/$defs/identifier"
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        },
+        "explanation": {
+          "$ref": "#/$defs/explanation"
+        },
+        "continuation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "scripted_option_id",
+            "outcome",
+            "note"
+          ],
+          "properties": {
+            "scripted_option_id": {
+              "$ref": "#/$defs/identifier"
+            },
+            "outcome": {
+              "enum": [
+                "completed",
+                "intercepted"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frame"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event_id",
+              "t_ms",
+              "kind",
+              "player_id"
+            ],
+            "properties": {
+              "event_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "t_ms": {
+                "$ref": "#/$defs/time"
+              },
+              "kind": {
+                "enum": [
+                  "pass",
+                  "completed",
+                  "intercepted"
+                ]
+              },
+              "player_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "target_player_id": {
+                "$ref": "#/$defs/identifier"
+              }
+            }
+          }
+        },
+        "recap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "recorded_outcome",
+            "choice_context",
+            "assessment_context"
+          ],
+          "properties": {
+            "recorded_outcome": {
+              "type": "string"
+            },
+            "choice_context": {
+              "type": "string"
+            },
+            "assessment_context": {
+              "type": "string"
+            }
+          }
+        },
+        "pressure": {
+          "$ref": "#/$defs/pressure"
+        },
+        "interpretation": {
+          "$ref": "#/$defs/interpretation"
+        }
+      }
+    },
+    "errorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "uncertaintyRegion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "player_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "observed_at_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "position_m": {
+          "$ref": "#/$defs/position"
+        },
+        "age_ms": {
+          "$ref": "#/$defs/time"
+        },
+        "radius_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "assumption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "player_id",
+        "observed_at_ms",
+        "position_m",
+        "age_ms",
+        "radius_m",
+        "assumption"
+      ]
+    },
+    "traceStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "stage",
+        "status",
+        "detail"
+      ]
+    },
+    "claim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "pattern": "^c[0-9]{1,2}$",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "principle_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Principle Ids",
+          "type": "array"
+        },
+        "text": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "evidence_ids",
+        "principle_ids",
+        "text"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "deterministic",
+            "running",
+            "reviewed",
+            "insufficient_evidence",
+            "fallback"
+          ]
+        },
+        "source": {
+          "enum": [
+            "deterministic",
+            "local_agents",
+            "recorded_agents"
+          ]
+        },
+        "trace": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/traceStep"
+          }
+        },
+        "reason": {
+          "type": "string"
+        },
+        "elapsed_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "model": {
+          "type": "string"
+        },
+        "fan": {
+          "type": "string"
+        },
+        "analyst": {
+          "type": "string"
+        },
+        "claims": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/claim"
+          }
+        },
+        "missing_information": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recording": {
+          "$ref": "#/$defs/agentRecording"
+        }
+      },
+      "required": [
+        "status",
+        "source",
+        "trace"
+      ],
+      "if": {
+        "properties": {
+          "source": {
+            "enum": [
+              "local_agents",
+              "recorded_agents"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "model",
+          "fan",
+          "analyst",
+          "claims",
+          "missing_information",
+          "elapsed_s"
+        ]
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source": {
+                "const": "recorded_agents"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "recording"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "reviewed",
+                  "insufficient_evidence"
+                ]
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "recording"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "pressureOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "option_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "release_after_decision_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "release_before_pressure_margin_s": {
+          "$ref": "#/$defs/numericRange"
+        }
+      },
+      "required": [
+        "option_id",
+        "release_after_decision_s",
+        "release_before_pressure_margin_s"
+      ]
+    },
+    "pressure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "$ref": "#/$defs/snapshotId"
+        },
+        "evidence_id": {
+          "const": "pressure:arrival"
+        },
+        "model_version": {
+          "enum": [
+            "point-arrival-v0.1",
+            "point-arrival-v0.2"
+          ]
+        },
+        "status": {
+          "enum": [
+            "model_evidence",
+            "insufficient_evidence"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "options": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/pressureOption"
+          }
+        },
+        "arrival_after_decision_s": {
+          "$ref": "#/$defs/numericRange"
+        },
+        "stale_observation_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "evidence_id",
+        "model_version",
+        "status",
+        "limitations",
+        "options"
+      ],
+      "if": {
+        "properties": {
+          "status": {
+            "const": "model_evidence"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "arrival_after_decision_s"
+        ]
+      },
+      "else": {
+        "required": [
+          "stale_observation_ids"
+        ],
+        "properties": {
+          "options": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    "comparisonFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "option_ids",
+        "metric",
+        "relation",
+        "larger_margin_option_id",
+        "smaller_margin_option_id",
+        "basis",
+        "text"
+      ],
+      "properties": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "option_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "metric": {
+          "const": "sampled_interception_margin"
+        },
+        "relation": {
+          "enum": [
+            "ordered",
+            "equal",
+            "overlapping_ranges"
+          ]
+        },
+        "larger_margin_option_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "smaller_margin_option_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "matched_parameter_cases",
+            "parameter_range_extrema"
+          ]
+        },
+        "margin_difference_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "agentRecording": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "assessment_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "pressure_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "saved_at_utc": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        },
+        "timestamp_basis": {
+          "const": "source_file_modified_time"
+        },
+        "capture_method": {
+          "const": "tools/agent_smoke.py HTTP evidence capture"
+        },
+        "notes": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "assessment_sha256",
+        "pressure_sha256",
+        "source_sha256",
+        "saved_at_utc",
+        "timestamp_basis",
+        "capture_method",
+        "notes"
+      ]
+    }
+  }
+}

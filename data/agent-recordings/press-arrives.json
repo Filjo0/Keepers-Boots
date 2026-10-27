@@ -1,0 +1,65 @@
+{
+  "schema_version": "1",
+  "scenario_id": "press-arrives",
+  "interpretation": {
+    "analyst": "The evidence suggests release-short offers a larger sampled interception margin and a faster release before pressure compared to take-touch. This comparison is limited to sampled ground routes, and the model does not account for real-world variables like player acceleration or ball control.",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "evidence_ids": [
+          "comparison:take-touch:release-short"
+        ],
+        "principle_ids": [
+          "K03",
+          "K04"
+        ],
+        "text": "The release-short option provides a larger sampled interception margin than take-touch, suggesting a better time buffer."
+      },
+      {
+        "claim_id": "c2",
+        "evidence_ids": [
+          "pressure:arrival",
+          "take-touch:geometry",
+          "release-short:geometry"
+        ],
+        "principle_ids": [
+          "K12"
+        ],
+        "text": "The model shows release-short has a larger minimum interception margin and a faster release time before pressure."
+      }
+    ],
+    "elapsed_s": 26.219,
+    "fan": "The comparison shows that the release-short option has a larger time buffer against interception compared to take-touch. However, the model's synthetic nature means this margin does not guarantee a successful pass.",
+    "missing_information": [],
+    "model": "gemma4:e4b-llama.cpp",
+    "source": "local_agents",
+    "status": "reviewed",
+    "trace": [
+      {
+        "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+        "stage": "mcp",
+        "status": "read"
+      },
+      {
+        "detail": "References, identities, numeric rendering and scope guards passed.",
+        "stage": "validator",
+        "status": "accept"
+      },
+      {
+        "detail": "No unsupported interpretation identified.",
+        "stage": "reviewer",
+        "status": "accept"
+      }
+    ]
+  },
+  "recording": {
+    "snapshot_id": "f351d476f62913ea696a5510a5c6aff53a6786cbae80264e7736da4327c75744",
+    "assessment_sha256": "dac7ab58c2b37832fe98a9eeb82604d20b24f65f92f1e656af082b6f8e7e5e6f",
+    "pressure_sha256": "5abe9ad108a8137cc44ab1904a4c80f8ae4ff09de65718512ced3b1b95d2bc3d",
+    "source_sha256": "631b95228cb0fe81435513c0a4cf5c3e9043a64ff17ffe2fb60cc4bf8a1a24e4",
+    "saved_at_utc": "2026-10-12T05:07:28Z",
+    "timestamp_basis": "source_file_modified_time",
+    "capture_method": "tools/agent_smoke.py HTTP evidence capture",
+    "notes": []
+  }
+}

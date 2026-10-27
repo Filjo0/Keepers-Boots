@@ -1,0 +1,51 @@
+Keeper's Boots - recorded-mode test instructions
+
+Intended platform: desktop browser with Python 3.12. Commands below use Windows
+PowerShell from the extracted project root. No GPU, weights, Azure account, API
+key, model server or paid service is needed for recorded mode.
+
+Create a fresh environment and install its two pinned top-level dependencies:
+  py -3.12 -m venv .venv
+  .\.venv\Scripts\python.exe -m pip install pydantic==2.14.0 jsonschema==4.26.0
+  .\.venv\Scripts\python.exe -m keepers_boots.api --agents recorded
+Open http://127.0.0.1:8000 in one browser tab. Stop the API with Ctrl+C afterwards.
+Internet access is needed to install dependencies; interaction uses the local API.
+The optional Windows supervisor/resource policy is described in docs/OPERATIONS.md.
+
+1. Choose The tempting short pass, then Skip to decision.
+2. Choose Switch left. Fan view explains the ground-route findings in plain language.
+3. Switch to Analyst view: inspect exact timing ranges, assumptions, observations
+   and the captured handoff trace. Switch back to Fan view: technical audit details
+   are hidden, while your choice and the frozen evidence remain unchanged.
+4. Reveal recorded continuation. The authored short pass completes even though you
+   chose a different action. It does not simulate your choice or change the evidence.
+5. Try The press arrives. Its two short options share a route; the timing bars show
+   the extra touch moving release into the tested pressure-arrival window.
+6. Try The uncertain outlet. Look for the last-seen marker, observation age and
+   movement bound. The model declines to compare routes. The reveal now plays the
+   wide pass; the later positions cannot fill the earlier information gap.
+7. Press New attempt, then select 03 again. It should create a fresh attempt while
+   the API remains running. Keep the server running for the whole walkthrough.
+
+With reduced motion enabled, Play still shows the full build-up. Reveal pauses
+at the start of the continuation: press Play continuation to watch it, or Skip to
+recap if you prefer. A natural freeze keeps the pitch in view; Skip and Revisit
+scroll to the decision controls. The wide reveal labels V03's actual position as
+information that was not visible at the decision.
+
+Recorded explanations/traces come from actual earlier Agent Framework runs and
+are explicitly labelled. Numeric evidence is recomputed and checked against each
+capture. This mode makes no fresh model, agent or MCP calls. A missing/incompatible
+capture falls back explicitly. Live execution is separate, experimental and slower;
+see README.md for its setup and observed failures.
+
+Known limitations: scenario 1's prose is dense and its analyst inference about
+varying preparation delay is unverified; a human scope note discloses this without
+editing the capture. Scenario 3's suggestion to wait for an update is captured
+wording, not an instruction that a real keeper can safely wait. Reviewer benefit,
+fan appeal and independent scenario realism have not been measured. No overall
+best-choice score or pass-completion probability is provided.
+
+The source includes full-dependency/MCP/agent tests. See README.md for verification
+dates. Recorded-mode inspection does not demonstrate fresh inference or an
+independent clean-machine install.

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1",
+  "scenario_id": "uncertain-outlet",
+  "interpretation": {
+    "analyst": "The comparison of ground routes for pressure timing is inconclusive because the observation for V03 is stale. This prevents assessing the time buffer needed for preparation and release. We must wait for an updated observation to proceed with this analysis.",
+    "claims": [
+      {
+        "claim_id": "c1",
+        "evidence_ids": [
+          "pressure:arrival"
+        ],
+        "principle_ids": [
+          "K03"
+        ],
+        "text": "The model cannot compare ground routes for pressure timing because the observation for V03 is stale."
+      }
+    ],
+    "elapsed_s": 21.36,
+    "fan": "The model cannot compare the timing of ground routes for pressure because the data for V03 is old. This means we cannot tell if there is enough time to prepare and release the action.",
+    "missing_information": [
+      "Updated observation for V03"
+    ],
+    "model": "gemma4:e4b-llama.cpp",
+    "source": "local_agents",
+    "status": "reviewed",
+    "trace": [
+      {
+        "detail": "Frozen state, option comparison and pressure supplied through bounded tools.",
+        "stage": "mcp",
+        "status": "read"
+      },
+      {
+        "detail": "References, identities, numeric rendering and scope guards passed.",
+        "stage": "validator",
+        "status": "accept"
+      },
+      {
+        "detail": "No unsupported interpretation identified.",
+        "stage": "reviewer",
+        "status": "accept"
+      }
+    ]
+  },
+  "recording": {
+    "snapshot_id": "935675987e7a3cc08b824b0d970fbbda4fe03aa2d28c484df17eabcefd65ccff",
+    "assessment_sha256": "c071b875ae652d3ce58fffdf5d24df982887b3a9ab251db5906de1f4899105b9",
+    "pressure_sha256": "aa845ce3e73a25c51b7f8143a0f8c21f2e6cd5a872c798f10036ea8a62aa90d1",
+    "source_sha256": "f0e6ed03b093d266dc2af4d1308efb8a4c0558c14c1ce454c4ebc9d75838ccc6",
+    "saved_at_utc": "2026-10-12T05:07:50Z",
+    "timestamp_basis": "source_file_modified_time",
+    "capture_method": "tools/agent_smoke.py HTTP evidence capture",
+    "notes": []
+  }
+}

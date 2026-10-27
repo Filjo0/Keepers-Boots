@@ -1,0 +1,11 @@
+start_seconds,end_seconds,screen_action,required_disclosure
+0,10,Show title and synthetic match label,Fictional teams and generated events
+10,18,Play scenario 1 then freeze,Generated scenario replay
+18,30,Choose switch left before reveal,Choice retained; no correct-choice score
+30,45,Show both ground-route evidence cards,Sampled timing model and tested assumptions
+45,55,Show long option and ranking limit,Aerial contest unmodelled; no overall ranking
+55,70,Reveal authored short-pass completion and show unchanged evidence,Continuation does not simulate the viewer's chosen action
+70,85,Switch to uncertain outlet and show old observation,Comparison abstains because evidence is stale
+85,98,Show plain Fan cards then switch to Analyst timing audit and open captured handoff,Microsoft Agent Framework; host reads frozen MCP tools; no current repair
+98,110,Keep recorded model/date/no-live-calls label visible,Actual prior runs; scenario 1 selected 1 of 5; live inference experimental
+110,115,Show project title and README model-free testing instructions,Use verified repository/video links only after publication; no live inference claim
