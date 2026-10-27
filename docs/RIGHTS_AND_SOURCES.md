@@ -30,11 +30,11 @@ Section 7 of the rules grants the organizers broad, perpetual reuse rights in a 
 ## Inventory at bootstrap
 | Asset | Origin | Status |
 |---|---|---|
-| Source code and tests | Written for this project | MIT; public release pending |
+| Source code and tests | Written for this project | MIT; reviewed source snapshot published 27 October |
 | Synthetic fixture | Project's own generator | Fictional, reproducible |
 | Keeper principles | Original draft text | Human review pending |
-| Recorded agent text and handoff traces | Three local Gemma/Microsoft workflow captures, 12 October 2026 | Original outputs preserved; hashes bound; selected generic football text inspected against original synthetic inputs; project MIT applies to held rights; publishing authorised 27 October, not yet performed |
-| Calibration failures and selection audit | Two original reviewer-approved errors and five-attempt showcase-selection metadata | Frozen visible evidence and unedited interpretations only; excluded from held-out scoring; project MIT applies to held rights; publishing authorised 27 October, not yet performed |
+| Recorded agent text and handoff traces | Three local Gemma/Microsoft workflow captures, 12 October 2026 | Original outputs preserved; hashes bound; selected generic football text inspected against original synthetic inputs; project MIT applies to held rights; source snapshot published 27 October |
+| Calibration failures and selection audit | Two original reviewer-approved errors and five-attempt showcase-selection metadata | Frozen visible evidence and unedited interpretations only; excluded from held-out scoring; project MIT applies to held rights; source snapshot published 27 October |
 | Research links | Public primary sources and product pages | Linked references only |
 
 ## Dependency and model boundaries
@@ -60,4 +60,4 @@ Inspected installed notices on 2026-10-12:
 | pydantic | 2.14.0 | MIT |
 | jsonschema | 4.26.0 | MIT |
 
-This is a dependency inventory, not a completed native-component redistribution audit. The project's MIT licence does not replace third-party terms. The selected source preview and tracked history passed forbidden-path and redacted credential-pattern checks on 15 October; no weights, private corpus or raw local captures are included. Such checks do not establish rights in arbitrary future generated text. The owner authorised public materials and submission on 27 October, replacing the earlier keep-local instruction. No remote repository, public video or submitted entry exists yet.
+This is a dependency inventory, not a completed native-component redistribution audit. The project's MIT licence does not replace third-party terms. The selected source preview and tracked history passed forbidden-path and redacted credential-pattern checks on 15 October; no weights, private corpus or raw local captures are included. Such checks do not establish rights in arbitrary future generated text. The owner authorised public materials and submission on 27 October. The reviewed source is now public at https://github.com/Filjo0/Keepers-Boots; an anonymous download was verified against all 92 committed source files. The original local Git history was not uploaded, preserving its author email metadata. No public demo video or submitted entry exists yet.

@@ -1,5 +1,9 @@
 Keeper's Boots - recorded-mode test instructions
 
+Public repository: https://github.com/Filjo0/Keepers-Boots
+Free source/test ZIP: https://github.com/Filjo0/Keepers-Boots/archive/refs/heads/main.zip
+No GitHub account is required to download the source ZIP.
+
 Intended platform: desktop browser with Python 3.12. Commands below use Windows
 PowerShell from the extracted project root. No GPU, weights, Azure account, API
 key, model server or paid service is needed for recorded mode.

@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
-  "requirements_sha256": "66d52f73cdf7203608fa639e4e55811579b293ebda8bceb70b49a034353b8210",
-  "notices_sha256": "5b14d28cab9738d4b47f911143ed5122438455cbf0042c47f4d7e873096980db",
+  "requirements_sha256": "bc3fcf6852e3b752a0f3cd10ab82e67f7ac2649b0b15e92a9a12c832dd3471de",
+  "notices_sha256": "6b97a4d85ceb829946b6a98a31607e11c0a7cb84e17a4845e2eab0de295f1aff",
   "packages": [
     {
       "name": "agent-framework-core",
@@ -100,7 +100,7 @@
     },
     {
       "name": "certifi",
-      "version": "2026.7.22",
+      "version": "2026.10.23",
       "marker": null,
       "declared_license_expression": "See included notice text",
       "project_urls": [
@@ -108,7 +108,7 @@
       ],
       "notice_files": [
         {
-          "path": "certifi-2026.7.22.dist-info/licenses/LICENSE",
+          "path": "certifi-2026.10.23.dist-info/licenses/LICENSE",
           "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
           "bytes": 989
         }

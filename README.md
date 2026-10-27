@@ -2,22 +2,26 @@
 
 **Before the save: understand the keeper's choices.**
 
+[![Project checks](https://github.com/Filjo0/Keepers-Boots/actions/workflows/checks.yml/badge.svg)](https://github.com/Filjo0/Keepers-Boots/actions/workflows/checks.yml)
+
+[Download the free source/test build](https://github.com/Filjo0/Keepers-Boots/archive/refs/heads/main.zip) · [Testing instructions](data/demo/testing-instructions.txt)
+
 A new fan experience for the Inside the Game hackathon: replay a synthetic football sequence, freeze before the goalkeeper acts, choose a pass, inspect the evidence, and then reveal the outcome.
 Here, ingest means loading and replaying generated scenario data. Live event-feed ingestion is not implemented.
 
 ## Current state
 
-Local project, created 2026-10-09. Three synthetic scenarios, frozen geometry, browser/API loop, five MCP tools and a Microsoft Agent Framework analyst/reviewer workflow are implemented. Cloud deployment, independent scenario review, fan pilot and submission remain pending. The budget is A$0.
+Created 2026-10-09; public source published on 2026-10-27. Three synthetic scenarios, frozen geometry, browser/API loop, five MCP tools and a Microsoft Agent Framework analyst/reviewer workflow are implemented. The demo video and hackathon submission remain unfinished. Independent scenario review and a fan pilot have not been completed. The budget is A$0.
 
 The single operational status and next action live in [the active task](tasks/01-keeper-loop.md).
 
 Verified locally on 2026-10-27: 75 tests passed under the normal Windows supervisor, including real MCP stdio and 14 browser-independent frontend checks. Dependency checks, all 42 package notices and the CLI passed. All three recorded HTTP loops passed, and the owner checked the three scenarios on a phone. The latest fan/analyst presentation change still needs a real browser check. Earlier evidence includes live agent/API loops and a clean same-machine recorded installation without agent/model/MCP packages. Numerical evidence stays frozen across polling and reveal. Fan appeal, independent scenario realism and reviewer benefit are unmeasured.
 
-[GitHub Actions checks](.github/workflows/checks.yml) are prepared for the public repository: pinned dependencies, the complete suite, documentation, CLI and whitespace checks on a standard Windows runner. The workflow skips private repositories under A$0, uses a read-only token and makes no model calls. Its commands passed locally on 13 October; execution on GitHub awaits publication. This is engineering validation, not evidence of additional hero-technology use.
+[GitHub Actions checks](.github/workflows/checks.yml) [passed on 27 October](https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451): installation of pinned dependencies, all 75 tests, dependency checks, documentation, notices, CLI and whitespace on a fresh standard Windows runner. The workflow uses a read-only token, makes no model calls and skips private repositories under A$0. This verifies the source installation and tests, not visual browser behaviour or live inference.
 
-[MIT](LICENSE) applies to the project, with attribution to Keeper's Boots contributors. [Dependency notices](THIRD_PARTY_NOTICES.txt) preserve installed notices for all 42 pinned Python packages; their source hashes are in [the notice manifest](data/release/dependency-notices.json). These components retain their own licences. Public publishing and submission were authorised on 27 October; the repository and video have not yet been published. A local preview can be built with tools/build_preview.py after staging the complete source. It excludes private/local artifacts and weights and includes an explicit unpublished label plus file hashes.
+[MIT](LICENSE) applies to the project, with attribution to Keeper's Boots contributors. [Dependency notices](THIRD_PARTY_NOTICES.txt) preserve installed notices for all 42 pinned Python packages; their source hashes are in [the notice manifest](data/release/dependency-notices.json). These components retain their own licences. [The source repository](https://github.com/Filjo0/Keepers-Boots) is public; the video has not yet been recorded or published. The source ZIP is freely downloadable without a GitHub account and contains no weights, environments or private/local artifacts.
 
-The public repository will start from a reviewed source snapshot using a GitHub no-reply author identity. Historical commit IDs in audit notes refer to the original local development history. The published files retain the [calibration failures](data/evaluation/calibration/README.md), capture-selection inventory and known limitations; these do not depend on publishing personal author metadata.
+The public repository starts from a reviewed source snapshot using a GitHub no-reply author identity. Historical commit IDs in audit notes refer to the original local development history. The published files retain the [calibration failures](data/evaluation/calibration/README.md), capture-selection inventory and known limitations; these do not depend on publishing personal author metadata.
 
 ## Run locally
 
@@ -51,7 +55,7 @@ Open http://127.0.0.1:8000, choose a moment, skip to the freeze and choose an ac
 
 Fan view turns the computed route findings into plain-language cards and explains the pressure diagram. Analyst view adds exact timing ranges, matched comparisons, assumptions, observation identity and the captured handoff. The plain-language cards are deterministic presentations of computed findings; the original captured AI summaries, claims and traces are not rewritten. Switching views keeps the same choice and frozen evidence.
 
-The [recording inventory](data/agent-recordings/README.md) discloses selection of 1 of 5 scenario 1 attempts, provenance and the replacement of an earlier erroneous capture, which remains in Git history/local audit records. The refreshed explanation is an unedited new model output. Captures demonstrate observed runs, not fresh execution or measured reviewer benefit. Install all dependencies above and use local mode below to exercise the live workflow. Public release and the complete rights/licence review remain pending.
+The [recording inventory](data/agent-recordings/README.md) discloses selection of 1 of 5 scenario 1 attempts, provenance and replacement of an earlier erroneous capture. The original local history and published calibration data preserve known failures. The refreshed explanation is an unedited new model output. Captures demonstrate observed runs, not fresh execution or measured reviewer benefit. Install all dependencies above and use local mode below to exercise the live workflow. No model weights or native dependency binaries are redistributed; the [rights notes](docs/RIGHTS_AND_SOURCES.md) explain the source-only release scope.
 
 Run the three-scenario browser experience with deterministic explanations:
 
@@ -69,7 +73,7 @@ For actual local AI execution, start an existing OpenAI-compatible model server 
 .\.venv\Scripts\python.exe -m keepers_boots.api --agents local --model gemma4:e4b-llama.cpp --model-endpoint http://127.0.0.1:8088/v1
 ~~~
 
-These defaults match PythonProject2's current source configuration, not a verified record of its last-used model. Its alternative Ollama configuration names Qwen; a compatible local Qwen server can be selected with the same flags. Keeper's Boots reuses only the model endpoint, never that project's private knowledge. No runtime or weights are bundled or automatically downloaded.
+These defaults select an anonymous local Gemma endpoint. A compatible local Qwen server can be selected with the same flags. Only the endpoint is used; no private corpus or configuration is imported. No runtime or weights are bundled or automatically downloaded.
 
 Microsoft Agent Framework runs the analyst and independent reviewer over frozen MCP evidence. One repair is allowed; unavailable or rejected output leaves the deterministic explanation visible. The browser labels its source and shows the workflow trace. Numeric evidence stays unchanged. [Agent contracts](docs/AGENTS_AND_MCP.md) and [operations](docs/OPERATIONS.md) distinguish implementation from verification.
 The design uses layered checks: code computes facts, code guards check specified claim rules, and a reviewer adds a judgment-based check in a fresh context using the same model. The reviewer approved wrong text in two known calibration runs; benefit over an analyst with the same guards is unproven. See the [calibration evidence](data/evaluation/calibration/README.md) and [held-out comparison task](tasks/04-reviewer-comparison.md).
@@ -110,6 +114,10 @@ Regenerate the checked-in scenario from its owning source:
 | Private KB boundary, attribution and publishing | [Rights and sources](docs/RIGHTS_AND_SOURCES.md) |
 
 ## Product boundary
+
+This is a local demonstration, with the default HTTP listener restricted to 127.0.0.1. Publishing its source does not deploy a public application server. The API checks Host/Origin, restricts served files, caps JSON bodies and sessions, and applies request timeouts and a Content Security Policy. It has no user authentication or TLS and has not had an independent penetration test; do not expose this development server directly to the public internet.
+
+Security review on 27 October updated certifi to 2026.10.23 for [GHSA-6q48-6c7w-9gw2](https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2). An OSV lookup found no known advisory matches for the 42 refreshed pins at check time. A redacted source scan found no credential signatures, personal contact-email matches or participant rows. Device addresses and an unrelated local-project alias were removed from current documentation. These checks do not guarantee absence of private information or unknown vulnerabilities; earlier public commits may retain nonsecret setup references.
 
 All clubs, players, events and tracking are fictional. Geometry describes a documented simulation. It does not establish real player ability, coaching optimality, training effectiveness or betting value.
 

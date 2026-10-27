@@ -20,10 +20,10 @@ The bounded Phi follow-up stopped after three additional scenario 1 jobs (40.484
 Find the laptop's Wi-Fi IPv4 address (for example with ipconfig), then run this from the project root after the resource gate passes. Replace the example address with the actual one:
 
 ~~~powershell
-.\.venv\Scripts\python.exe tools/run_supervised.py --timeout 900 -- .\.venv\Scripts\python.exe -m keepers_boots.api --agents recorded --lan-ip 192.168.1.248
+.\.venv\Scripts\python.exe tools/run_supervised.py --timeout 900 -- .\.venv\Scripts\python.exe -m keepers_boots.api --agents recorded --lan-ip 192.168.1.100
 ~~~
 
-Open http://192.168.1.248:8000 on the phone using the same Wi-Fi. The laptop serves the replay and recorded explanations; no model or laptop browser is required. Keep the launcher running during the test, then stop it with Ctrl+C. Its 900-second deadline also closes the owned server. The chosen IP must belong to the laptop, may change after reconnecting, and must be reachable from the phone; guest-network isolation or Windows Firewall can prevent access. No firewall rules, network profiles, router settings or public hosting are changed automatically. Host/Origin protections remain enforced; --lan-ip works only with recorded mode and cannot be combined with --host. Binding 0.0.0.0 alone is not a supported phone path.
+Open the corresponding address on the phone using the same Wi-Fi; http://192.168.1.100:8000 is an example, not a recorded device address. The laptop serves the replay and recorded explanations; no model or laptop browser is required. Keep the launcher running during the test, then stop it with Ctrl+C. Its 900-second deadline also closes the owned server. The chosen IP must belong to the laptop, may change after reconnecting, and must be reachable from the phone; guest-network isolation or Windows Firewall can prevent access. No firewall rules, network profiles, router settings or public hosting are changed automatically. Host/Origin protections remain enforced; --lan-ip works only with recorded mode and cannot be combined with --host. Binding 0.0.0.0 alone is not a supported phone path.
 
 ## Laptop resource limits
 

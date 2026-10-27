@@ -34,7 +34,7 @@ On stale observations, a draft must identify missing information. Neither agent 
 
 Pinned on 2026-10-10: agent-framework-core 1.21.0, agent-framework-openai 1.16.0, mcp 1.30.0. requirements.txt pins transitive packages; pywin32 is Windows-only. MCP v1 is used because this Agent Framework release requires mcp below v2. Calls were checked against [Agent Framework structured outputs](https://learn.microsoft.com/en-us/agent-framework/agents/structured-outputs) and the [official MCP v1 SDK](https://github.com/modelcontextprotocol/python-sdk/tree/v1.x).
 
-The Microsoft OpenAI adapter connects to an explicitly supplied anonymous loopback endpoint. Its protocol name does not imply a cloud call. Defaults mirror PythonProject2's source configuration: Gemma via llama.cpp at port 8088. A local Qwen server can be selected explicitly. Cloud URLs, URL credentials, queries and cloud model tags are rejected; this connector loads no environment file or private project configuration.
+The Microsoft OpenAI adapter connects to an explicitly supplied anonymous loopback endpoint. Its protocol name does not imply a cloud call. Defaults select Gemma via llama.cpp at port 8088. A local Qwen server can be selected explicitly. Cloud URLs, URL credentials, queries and cloud model tags are rejected; this connector loads no environment file or private project configuration.
 
 Agent Framework is the Microsoft component in the A$0 route. Foundry inference, Azure hosting and Copilot are not implemented. Do not claim Foundry-category eligibility or guaranteed judging credit.
 

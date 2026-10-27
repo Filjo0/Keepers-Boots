@@ -1,62 +1,27 @@
 # Submission readiness
 
-## Goal
+## Goal and deadline
 
-Prepare a reproducible A$0 submission, an under-two-minute functioning demo and evidence-backed claims. Submission closes 27 October 2026 at 23:59 Pacific, or 28 October at 14:59 Perth. Aim to finish by 25 October Perth, leaving a buffer.
+Complete the A$0 Inside the Game entry before 28 October 2026 at 14:59 Perth (27 October, 23:59 Pacific). Public publishing and submission are authorised. No paid services, Azure provisioning or additional model trials are planned.
 
-27 October authorization: the owner explicitly instructed preparation of the public GitHub repository/video, link verification and submission, superseding keep-local. This authorizes those actions, not paid services, model loading or Azure provisioning. GitHub CLI initially returned HTTP 401; the owner requested device sign-in and it completed as Filjo0. Native Computer Use reports an unavailable pipe, browser inventory is empty and the in-app browser is unavailable, so actual recording/upload/form work cannot yet be completed. No video or public links should be invented. Source preparation and local checks continue independently. Publish a reviewed snapshot with the account's no-reply identity, preserving personal author metadata only in the original local history.
+## Available materials
 
-## Submission-first route, 18 October
+- [Public MIT source](https://github.com/Filjo0/Keepers-Boots).
+- [Free source/test ZIP](https://github.com/Filjo0/Keepers-Boots/archive/refs/heads/main.zip), verified by anonymous download.
+- [Model-free testing instructions](../data/demo/testing-instructions.txt), requiring Python 3.12 and the two documented dependencies.
+- [Successful fresh Windows CI](https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451): 75 tests, dependencies, notices, documentation, CLI and whitespace.
+- [115-second captions](../data/demo/narration.srt), [shot list](../data/demo/shot-list.csv) and [description draft](../data/demo/submission-description.txt). These are preparation files, not a finished video.
 
-The owner cannot free more laptop resources. Freeze scope: no additional model trials, prompts/guards, supervisor features or cloud provisioning unless a concrete release-blocking bug appears. At 11:16 UTC the gate reported 1.14 GiB available RAM, committed memory 88%, CPU 55%, GPU 58/4096 MiB at 66 C and free disk 15.93 GiB; heavy local work remains deferred.
+## Remaining sequence
 
-Rechecked official sections 1, 4.4 and 4.8 on 18 October: public GitHub code, a short description, video under two minutes showing the functioning project, and free testing access remain required. A website is one permitted test route; a functioning demo or test build is also permitted. A recorded fixture alone is not explicitly guaranteed to satisfy agent judging. Preserve live source/setup and label captured runs clearly. No new pilot, independent scenario endorsement or reviewer-benefit result is a submission prerequisite stated in these sections; keep those claims unmeasured if not collected.
+1. Verify the revised Fan/Analyst presentations in a real browser, including timing bars, scenario 3's uncertainty, reveal, reduced motion and keyboard/focus behaviour. Keep known capture limitations visible.
+2. Record actual interaction for 115 seconds. Show a choice, its evidence, scenario 3's abstention and the captured handoff. Label the AI outputs as recorded; the present captures show acceptance, not a repair. Do not replace functioning-app footage with invented animation.
+3. Upload the real video to an allowed public host and verify anonymous access and a duration below two minutes. Add its actual URL to the description and remove the VIDEO PENDING line.
+4. Complete the real hackathon project fields with the repository, video, pitch, Microsoft Agent Framework technology and free testing instructions. Save the actual project URL/confirmation. Do not claim submission until confirmation exists.
+5. Keep source, video and testing access available through judging. The local Python demo server is not an internet deployment configuration.
 
-Smallest practical order: finish the current source candidate and testing instructions; restore the authorised GitHub sign-in; publish only the reviewed MIT source; inspect the existing public-repository GitHub Actions workflow's actual results. The local full suite now passes, as recorded below. GitHub's standard hosted runners are free for public repositories according to its [billing documentation](https://docs.github.com/en/billing/concepts/product-billing/github-actions); no larger runner, paid plan, cloud model or hosted service is authorised. The two existing pinned action commits were checked as reachable in their official repositories. A prepared workflow is not a passing hosted run; inspect actual results and fix concrete failures before claiming success.
+## Evidence limits
 
-Use data/demo/testing-instructions.txt for recorded-mode inspection and the existing 115-second captions/shot list for the actual video. Capture real interaction with no live inference; a phone filming a functioning screen can avoid screen-encoder load. If the local recorded loop itself cannot run safely, a borrowed computer is an alternative for that demonstration/install check; availability is not assumed. Stills or invented animations do not substitute for required footage of the functioning project. No video has been recorded or uploaded. Finish the public repository/video links and description before the deadline, then have the owner perform the final submission/acceptance on the hackathon site.
+Local and hosted tests do not establish learning effectiveness, independent football realism or reviewer benefit. Pilot sessions and a held-out comparison are optional evidence work; their results must remain unmeasured until collected. Docker and fresh live inference are not verified release routes. Source privacy checks and known-advisory lookups do not guarantee absence of private information or vulnerabilities.
 
-Publishing, sign-in and submission were authorised on 27 October. This preparation has not yet created a remote or release. Earlier heavy-test plans below remain subject to the resource gate; fresh live calls and Docker are not prerequisites for the recorded-mode entry, and their absent verification must stay explicit.
-
-## Branch or worktree
-
-Local main branch. Initial checkpoint includes only project text/source and generated synthetic fixtures. No public remote or release exists. A local commit records history but is not an off-device backup.
-
-## Verified findings
-
-- Registration is complete. Budget remains A$0.
-- Official rules checked 12 October: public GitHub repository, description and video under two minutes are required. Section 4.8 permits a website, functioning demo or test build. Testing must be free and available through the judging period.
-- Microsoft Agent Framework qualifies as an explicitly listed orchestration approach for Best Multi-Agent System. Host-controlled MCP reads do not invalidate that category; reviewer benefit over one analyst remains unmeasured.
-- Three earlier live local loops and 55 software tests passed in the active task, with the complete local suite refreshed on 15 October. Individual cold successful observations span 21-86 seconds; recent failures remain disclosed. Cached results are reused. Do not claim real-time model generation from the cached demo.
-- Recorded mode passed browser checks and three HTTP loops in a clean same-machine environment with only Pydantic/JSON Schema. No Agent Framework, OpenAI or MCP packages were installed there. The captured explanations and traces are inspectable without a model server; independent judge-machine installation remains untested.
-- No comparison with other hackathon entries supports novelty claims. Source-line counts do not measure fan experience.
-- The first recording was replaced by unedited fresh generation after wording and then polarity/completeness failures; those failures remain in audit records. Current traces show acceptance without repair. Recorded-fixture acceptance for agent judging is not explicitly guaranteed by the rules. Live responsiveness, event streaming and independently reviewed football realism remain fit risks.
-
-## Plan
-
-1. docs/RIGHTS_AND_SOURCES.md and root LICENSE: MIT is applied to Keeper's Boots contributors under the owner's delegated attribution choice. THIRD_PARTY_NOTICES.txt and data/release/dependency-notices.json collect exact-version notices for all 42 pinned Python packages; tools/export_dependency_notices.py --check verifies them. These retain their own licences. Review the final source-file inventory before publication; no wheels, native libraries or weights are bundled in the source preview. Container/native redistribution checks remain separate.
-2. README.md, keepers_boots/recordings.py, data/agent-recordings/ and tools/export_agent_recordings.py: provide labelled recorded outputs from actual local-artifacts/runtime-*.json captures. Preserve explanations and traces, bind them to current frozen numeric evidence, expose model/date/original duration and known errors, and fall back explicitly when incompatible. This route needs no model hardware and makes captured multi-agent work inspectable. Verify it in a fresh Python 3.12 environment with only Pydantic/JSON Schema. Keep --agents local and tools/agent_smoke.py for actual execution; a recording cannot establish fresh agent execution or reviewer benefit. Review the generated recordings' publication terms before choosing the licence. Document model setup for the live path without bundling weights. Dockerfile stays unverified until a real build/run succeeds. Prewarming live scenarios is optional later; recordings solve the hardware-free inspection problem directly.
-3. Follow tasks/02-fan-understanding.md with consenting participants. Separately seek scenario/principle review. Follow tasks/04-reviewer-comparison.md and the unchanged docs/EVALUATION.md on new variants with frozen prompts/guards; three tuned scenarios and selected captures cannot establish reviewer benefit. Use paired identical first drafts and guards, and report failures as well as improvements.
-4. docs/EXPERIENCE_AND_DEMO.md: record a 115-second actual interaction, useful uncertainty and real agent handoffs. Disclose cached explanations and fallback. Include measured pilot findings only if collected; do not imply five convenience participants establish general learning effectiveness.
-5. README.md and project description: map ingest, interpret, explain, render and personalise to visible behaviour. Explain how Agent Framework supports distinct roles, a fresh reviewer packet, repair and recovery. State that the intended use is on-demand synthetic replay, with evidence limits available for inspection.
-6. After explicit publication authorization and a licence decision, create the public repository and upload the video. Verify public links and free testing instructions independently before submitting. Keep them working through the judging period. Never provision paid services under A$0.
-
-## Changes made
-
-Prepared the local checkpoint and this release task. Added recorded-agent mode, three selected real-run fixtures and provenance/compatibility checks. Corrected the hosting requirement and the demo's unsupported Azure end card. No publication, licence grant, external messages or submission performed. Private GitHub backup is a possible separate action; no repository has been created remotely.
-
-15 October: applied the agreed MIT licence with attribution chosen under the owner's delegation. Prepared all pinned-package notices and checks, a reproducible local source-preview packager, header-only adult pilot CSV, 115-second caption/shot assets and a submission-description draft. The preview carries an explicit unpublished status and per-file hashes, rejects private paths/non-text assets, and includes current recorded fixtures. A first extracted preview passed all three real HTTP loops in the existing minimal environment with no Agent Framework/OpenAI/MCP packages; runtime text/trace and frozen assessment matched. No model/browser was started, no participant data collected, and no video/public repository created.
-
-## Validation
-
-27 October: the complete local unittest suite now passes under the normal Windows supervisor: 75 tests in 14.472 seconds, including frontend behaviour and supervisor checks, with 166.02 MiB peak job commitment against a 1024 MiB cap. Captured log: local-artifacts/supervisor/full-suite-20261027-135657.log. pip check, the deterministic CLI and all 42 pinned dependency notices also passed. The owner reported all three phone scenarios working, including New attempt -> 03 after a stopped-server fetch error was resolved by restarting. All three recorded HTTP loops passed again on loopback. The owner now prefers laptop-only access. Independent fresh-machine installation, reduced-motion/screen-reader runtime checks, Docker, participant/held-out evaluations, an actual video and public-link checks remain unverified. This refresh does not claim a live-model pass or authorize publishing.
-
-Run .venv\Scripts\python.exe tools/check_docs.py for documentation. Before release, run the full unittest suite, pip check, real CLI, tools/agent_smoke.py --require-reviewed and tools/browser_smoke.mjs. Recorded-mode focused/full tests, browser verification and a clean same-machine minimal installation passed. The independent fresh-machine install, container build, held-out agent comparison, participant evaluation and public access checks are pending; existing local checks cannot replace them. The updated container definition includes recordings and defaults to recorded mode, but Docker is unavailable and its build/runtime remain unverified.
-
-## Remaining work
-
-Publishing was deferred on 15 October and authorised on 27 October. The actual 115-second video, remote repository, hosted CI result, public links and submission remain pending. Participant sessions, independent scenario evidence, held-out reviewer comparison and independent judge-machine/container checks remain unperformed; do not claim their results. The first three are optional evidence work rather than prerequisites for making the required public source/video/test build available.
-
-## Next action
-
-Finish the source candidate, restore the in-progress GitHub sign-in and verify the revised audience views in a real browser. Record actual interaction using data/demo's 115-second captions/shot list; these files are not a finished video. Publish the authorised MIT source and video, verify anonymous access and free recorded-mode testing, then complete the real submission flow. Keep recorded mode primary and live inference experimental. Do not add model trials, paid services or cloud resources merely to increase the technology count. If the computer/browser connection remains unavailable, report that exact blocker instead of claiming a recording, upload or submission.
+The original development history and local operational diary remain private. The public snapshot retains synthetic data, original drafts, selected unedited agent captures, known failures, dependency notices and source tests. No video or submitted entry is available yet.

@@ -3,7 +3,8 @@ agent-framework-openai==1.16.0
 annotated-types==0.8.0
 anyio==4.15.1
 attrs==26.1.0
-certifi==2026.7.22
+# Security refresh 2026-10-27: removes roots affected by GHSA-6q48-6c7w-9gw2.
+certifi==2026.10.23
 cffi==2.1.1
 click==8.5.0
 cryptography==50.0.2

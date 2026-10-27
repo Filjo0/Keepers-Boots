@@ -10,10 +10,13 @@ Microsoft Agent Framework coordinates an analyst and a reviewer over evidence fr
 
 Pipeline: ingest generated scenario events; interpret frozen observations in code; explain through analyst/reviewer roles; render an SVG replay, evidence and recap; personalise the fan and analyst presentations. Ingest is generated replay, not a live event feed.
 
-Microsoft technology used: Microsoft Agent Framework. The captured runs used a local Gemma model. No Azure service is used. GitHub Actions checks are configured; hosted execution has not run yet.
+Microsoft technology used: Microsoft Agent Framework. The captured runs used a local Gemma model. No Azure service is used. GitHub Actions passed all 75 tests, dependency checks, documentation, notices and the CLI in a fresh Windows environment on 27 October.
 
 Free testing: use Python 3.12 and the README's recorded-mode instructions. The same repository includes the separate live-agent code and setup instructions; live inference remains experimental.
 
 Fan appeal, independent scenario realism and reviewer benefit remain unmeasured. The README and recording inventory disclose capture selection, acceptance-only traces and known wording limitations. Plain-language route cards present code-computed findings without editing captured AI text.
 
-RELEASE DRAFT: add verified public repository and video URLs after publishing, update actual CI status, and remove this status line before submission.
+Repository: https://github.com/Filjo0/Keepers-Boots
+Free source/test build: https://github.com/Filjo0/Keepers-Boots/archive/refs/heads/main.zip
+Verified CI: https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451
+VIDEO PENDING: actual footage has not been recorded or uploaded. Add its verified public URL and remove this status line before submission.
