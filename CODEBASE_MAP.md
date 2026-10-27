@@ -27,9 +27,9 @@
 | Capture archives and known calibration misses | tools/agent_smoke.py, tools/export_calibration_evidence.py, data/evaluation/calibration/ | tests/test_capture_audit.py |
 | Held-out paired reviewer comparison | tasks/04-reviewer-comparison.md | Implementation and results pending |
 | SDK pins and container definition | requirements.in, requirements.txt, Dockerfile | pip check; container build pending |
-| Public-repository continuous checks | .github/workflows/checks.yml | YAML/local commands checked; GitHub execution pending |
+| Public-repository continuous checks | .github/workflows/checks.yml | Fresh Windows GitHub Actions passed 75 tests, dependencies, notices, docs, CLI and whitespace |
 | Dependency notices and hashed source preview | tools/export_dependency_notices.py, tools/build_preview.py | tests/test_dependency_notices.py, tests/test_preview.py |
-| Adult pilot sheet and video preparation | data/pilot/adult-results-template.csv, data/demo/ | Headers/caption timing checked; participant sessions and actual video pending |
+| Adult pilot sheet and video preparation | data/pilot/adult-results-template.csv, data/demo/ | Actual 115-second Chrome footage and playback verified; allowed-host upload and participant sessions pending |
 
 ## Planned owning paths
 

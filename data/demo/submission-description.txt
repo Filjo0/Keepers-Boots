@@ -1,8 +1,8 @@
-Keeper's Boots - Before the save: understand the keeper's choices.
+In the Keepers Boots - Before the save: understand the keeper's choices.
 
 The keeper has the ball. The press is closing. Where would you pass?
 
-Keeper's Boots lets fans read a football moment before seeing its outcome. Replay a fictional match, freeze at the keeper's decision, choose a pass, inspect the available evidence, then reveal the continuation. Three scenarios explore an interceptable short route, the time cost of another touch and an opponent observation too old to support a comparison.
+In the Keepers Boots lets fans read a football moment before seeing its outcome. Replay a fictional match, freeze at the keeper's decision, choose a pass, inspect the available evidence, then reveal the continuation. Three scenarios explore an interceptable short route, the time cost of another touch and an opponent observation too old to support a comparison.
 
 Fan view gives plain-language findings. Analyst view opens exact timings, assumptions, observation ages and the captured agent handoff. The same frozen assessment and the viewer's choice survive every view change and reveal. A completed pass never rewrites what was knowable before it.
 
@@ -19,4 +19,4 @@ Fan appeal, independent scenario realism and reviewer benefit remain unmeasured.
 Repository: https://github.com/Filjo0/Keepers-Boots
 Free source/test build: https://github.com/Filjo0/Keepers-Boots/archive/refs/heads/main.zip
 Verified CI: https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451
-VIDEO PENDING: actual footage has not been recorded or uploaded. Add its verified public URL and remove this status line before submission.
+VIDEO URL PENDING: the captioned actual-app WebM is recorded and playback-verified at 115 seconds. Upload it to an allowed video host, add the verified public URL and remove this status line before completing the entry.

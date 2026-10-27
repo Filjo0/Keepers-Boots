@@ -201,7 +201,7 @@ try {
   await waitFor(async () => (await text("#status"))?.includes("Play the sequence"), "mobile new attempt");
   await click("#skip"); await click('[data-option="clear-long"]');
   await waitFor(() => visible("#evidence"), "aerial choice evidence");
-  assert((await text("#evidence-cards .chosen")).includes("outside the current geometry model"));
+  assert((await text("#evidence-cards .chosen")).includes("does not assess the aerial contest"));
   await revealAndPlay();
   await click("#skip"); assert(await visible("#recap"));
   await noOverflow();
@@ -234,7 +234,7 @@ try {
     if (scenario === "uncertain-outlet") {
       assert((await text("#evidence-cards")).includes("declines to compare"));
       assert.equal(await evaluate("document.querySelectorAll('#routes .uncertainty').length"), 1);
-      assert((await text("#evidence-cards")).includes("V03"));
+      assert((await text("#evidence-cards")).includes("Opponent 3"));
       assert((await text("#evidence-cards")).includes("6.5 m"));
       assert.equal(await visible("#route-audit"), false);
     } else {

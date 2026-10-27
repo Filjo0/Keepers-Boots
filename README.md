@@ -1,4 +1,4 @@
-# In the Keeper's Boots
+# In the Keepers Boots
 
 **Before the save: understand the keeper's choices.**
 
@@ -11,15 +11,15 @@ Here, ingest means loading and replaying generated scenario data. Live event-fee
 
 ## Current state
 
-Created 2026-10-09; public source published on 2026-10-27. Three synthetic scenarios, frozen geometry, browser/API loop, five MCP tools and a Microsoft Agent Framework analyst/reviewer workflow are implemented. The demo video and hackathon submission remain unfinished. Independent scenario review and a fan pilot have not been completed. The budget is A$0.
+Created 2026-10-09; public source published on 2026-10-27. Three synthetic scenarios, frozen geometry, browser/API loop, five MCP tools and a Microsoft Agent Framework analyst/reviewer workflow are implemented. The actual 115-second browser demo is recorded and playback-verified. Its upload to an allowed video host and the hackathon entry's completion remain unverified. Independent scenario review and a fan pilot have not been completed. The budget is A$0.
 
 The single operational status and next action live in [the active task](tasks/01-keeper-loop.md).
 
-Verified locally on 2026-10-27: 75 tests passed under the normal Windows supervisor, including real MCP stdio and 14 browser-independent frontend checks. Dependency checks, all 42 package notices and the CLI passed. All three recorded HTTP loops passed, and the owner checked the three scenarios on a phone. The latest fan/analyst presentation change still needs a real browser check. Earlier evidence includes live agent/API loops and a clean same-machine recorded installation without agent/model/MCP packages. Numerical evidence stays frozen across polling and reveal. Fan appeal, independent scenario realism and reviewer benefit are unmeasured.
+Verified locally on 2026-10-27: 75 tests passed under the normal Windows supervisor, including real MCP stdio and 14 browser-independent frontend checks. Dependency checks, all 42 package notices and the CLI passed. All three recorded HTTP loops passed, and the owner checked the three scenarios on a phone. On 28 October Perth time, real isolated Chrome checks passed for the revised Fan/Analyst presentations, all three scenarios, a narrow viewport without horizontal overflow, reduced-motion continuation and unchanged evidence after reveal. The captioned 1600 by 900 browser video decodes successfully and lasts exactly 115 seconds. Earlier evidence includes live agent/API loops and a clean same-machine recorded installation without agent/model/MCP packages. Fan appeal, independent scenario realism, screen-reader behaviour and reviewer benefit are unmeasured.
 
 [GitHub Actions checks](.github/workflows/checks.yml) [passed on 27 October](https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451): installation of pinned dependencies, all 75 tests, dependency checks, documentation, notices, CLI and whitespace on a fresh standard Windows runner. The workflow uses a read-only token, makes no model calls and skips private repositories under A$0. This verifies the source installation and tests, not visual browser behaviour or live inference.
 
-[MIT](LICENSE) applies to the project, with attribution to Keeper's Boots contributors. [Dependency notices](THIRD_PARTY_NOTICES.txt) preserve installed notices for all 42 pinned Python packages; their source hashes are in [the notice manifest](data/release/dependency-notices.json). These components retain their own licences. [The source repository](https://github.com/Filjo0/Keepers-Boots) is public; the video has not yet been recorded or published. The source ZIP is freely downloadable without a GitHub account and contains no weights, environments or private/local artifacts.
+[MIT](LICENSE) applies to the project, with attribution to Keeper's Boots contributors. [Dependency notices](THIRD_PARTY_NOTICES.txt) preserve installed notices for all 42 pinned Python packages; their source hashes are in [the notice manifest](data/release/dependency-notices.json). These components retain their own licences. [The source repository](https://github.com/Filjo0/Keepers-Boots) is public. The captioned WebM demo shows actual app interaction with recorded AI, rather than fresh inference. Its public download is linked from the [demo release](https://github.com/Filjo0/Keepers-Boots/releases/tag/demo-v1); the hackathon still needs an allowed-host video URL. The source ZIP is freely downloadable without a GitHub account and contains no weights, environments or private/local artifacts.
 
 The public repository starts from a reviewed source snapshot using a GitHub no-reply author identity. Historical commit IDs in audit notes refer to the original local development history. The published files retain the [calibration failures](data/evaluation/calibration/README.md), capture-selection inventory and known limitations; these do not depend on publishing personal author metadata.
 

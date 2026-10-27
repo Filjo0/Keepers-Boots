@@ -12,7 +12,7 @@ Three synthetic scenarios, immutable observations, route/pressure analysis, five
 
 All 75 tests passed locally after the certificate-package security update; the frontend suite includes 14 behaviour checks. The original public snapshot also passed [fresh Windows CI](https://github.com/Filjo0/Keepers-Boots/actions/runs/40525430451). Follow the repository's latest workflow result for subsequent updates.
 
-All three recorded HTTP choice/evidence/reveal loops passed. The owner checked three phone scenarios before the latest audience presentation change. That change still needs real-browser visual verification. Unit tests and HTTP probes are not screen-reader or fan-learning evidence.
+All three recorded HTTP choice/evidence/reveal loops passed. The owner checked three phone scenarios. On 28 October Perth time, isolated Chrome checks verified the revised audience views, all scenarios, narrow layout, reduced motion and immutable reveals. Actual app footage was captured with explicit recorded-AI captions and separately playback-verified: 115 seconds, 1600 by 900, WebM/VP9, no audio. Representative frames were inspected. These checks do not establish screen-reader behaviour or fan learning.
 
 The public source ZIP was verified by anonymous download against every committed file. The source contains no weights, environments or private corpus. Current public task cards omit detailed local operations, and the original development Git history/author metadata was not uploaded. Earlier public commits retain nonsecret setup notes.
 
@@ -22,6 +22,6 @@ The default server listens on loopback, checks Host/Origin, restricts served fil
 
 ## Remaining work
 
-Verify the revised views in a real browser, record the actual 115-second app demo, upload it to an allowed public video host, verify its URL and submit. No finished video or submission receipt exists. Live inference remains experimental; fan appeal, independent scenario realism and reviewer benefit remain unmeasured.
+Upload the completed 115-second app demo to an allowed public video host, verify its URL and add it to the existing hackathon project. The source release provides a downloadable video copy, which does not replace the allowed-host URL. The owner reports the project is already live; its final entry status has not been independently verified. Live inference remains experimental; fan appeal, independent scenario realism and reviewer benefit remain unmeasured.
 
 See the [release plan](03-submission-readiness.md), [recording inventory](../data/agent-recordings/README.md) and [calibration failures](../data/evaluation/calibration/README.md). Captured AI errors and selection history remain disclosed.
